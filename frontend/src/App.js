@@ -1,14 +1,17 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import Landing from './components/Landing';
+import HomeNotLoggedIn from './components/homeNotLoggedIn/HomeNotLoggedIn';
+import HomeLoggedIn from './components/homeLoggedIn/HomeLoggedIn';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const url = 'http://localhost:8080';
 
 function App() {
   const [data, setData] = useState(null);
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   const getDb = () => {
-    fetch(`${url}/api`)
+    fetch(`${url}/journals`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }
@@ -19,11 +22,9 @@ function App() {
 
   return (
     <div className="App">
-      <Landing />
-      {/* {data && <h1>{data[0].title}</h1>}
-      {data && <p>{data[0].content}</p>} */}
+      { isAuthenticated ? <HomeLoggedIn /> : <HomeNotLoggedIn /> }
     </div>
-  );
+  )
 }
 
 export default App;
