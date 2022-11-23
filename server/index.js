@@ -10,13 +10,44 @@ app.use(express.json());
 app.use(cors());
 
 app
-  .route('/api')
+  .route('/journals')
   .get(async (req, res) => {
     const result = await db.getJournals();
     return res
       .status(200)
       .json(result);
   });
+
+  app
+    .route('/sleeplogs/')
+    .get(async (req, res) => {
+      const result = await db.getSleepLogs();
+      return res
+        .status(200)
+        .json(result);
+    });
+
+    app
+    .route('/sleeplogs/:userId/')
+    .post(async (req, res) => {
+      const { userId } = req.params;
+      const newLog = req.body;
+
+      const result = db.addToSleepLogs(newLog, userId);
+
+      return res
+        .status(201)
+        .json(result);
+    })
+    .delete(async (req, res) => {
+      const { entryId, userId } = req.params;
+
+      console.log(userId);
+      const result = db.deleteSleepLog(entryId, userId);
+      return res
+        .status(204)
+        .json(result);
+    });
 
   app
   .listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`));
