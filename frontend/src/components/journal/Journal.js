@@ -24,8 +24,6 @@ const Journal = () => {
   const addJournalsHandler = async (enteredJournal) => {
     const {Thoughts, Emotions, Reflection } = enteredJournal
     const reqBody = {Thoughts, Emotions, Reflection, entryId: Date.now()  }
-     
-    alert(JSON.stringify(reqBody));
 
      const response = await fetch(url+id , {
       method:"POST",
@@ -45,9 +43,7 @@ headers: {
         return state
       })
     }  
-    else{
-      alert(result.code)
-    }
+    
   }
   
 
