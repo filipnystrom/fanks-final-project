@@ -5,7 +5,6 @@ import './Breathing.css';
 const Breathing = () => {
 const [text, setText] = useState('Ready?');
 const [className, setClassName] = useState('container');
-const [pointer, setPointerClassName] = useState('pointercontainer');
 const [isRunning, setIsRunning] = useState(false);
 const [isStop, setIsStop] = useState(false);
 let [animateDuration, setAnimateDuration] = useState(0);
@@ -18,9 +17,6 @@ const BREATHE_IN_ANIMATE_TEXT = 'Breathe In';
 const BREATHE_OUT_ANIMATE_TEXT = 'Breathe Out';
 const HOLD_ANIMATE_TEXT = 'Hold';
 
-// useEffect(() => {
-//     breathAnimation();
-// }, []);
 
 useEffect(() => {
     if (isRunning === true) {
@@ -37,14 +33,12 @@ const breathing = () => {
 animateDuration++;
 console.log('where4', animateDuration)
 if (animateDuration > 3) {
-    resetAnimation();
     animateDuration = 1;
     console.log('where5', animateDuration)
 } if (animateDuration === 1) {
     console.log('where', animateDuration)
     setText('Breathe In!');
     setClassName('container grow');
-    setPointerClassName('pointercontainer rotate');
 } else if (animateDuration === 2) {
     console.log('where2', animateDuration)
     setText('Hold');
@@ -55,21 +49,6 @@ if (animateDuration > 3) {
 }
 }
 
-// const breathAnimation = () => {
-//     setText('Breathe In!');
-//     setClassName('container grow');
-//     setPointerClassName('pointercontainer rotate');
-  
-//     setTimeout(() => {
-//       setText('Hold');
-
-//       setTimeout(() => {
-//         setText('Breathe Out!');
-//         setClassName('container shrink');
-//       }, holdTime);
-//     }, breatheTime);
-// }
-
 const startAnimation = () => {
     setIsRunning(true);
     setIsStop(false);
@@ -78,7 +57,6 @@ const startAnimation = () => {
 const stopAnimation = () => {
     setIsStop(true);
     setIsRunning(false);
-    setPointerClassName('pointercontainer');
     setClassName('container');
     setText('Resume?')
 }
@@ -93,10 +71,7 @@ const resetAnimation = () => {
     setIsStop(true);
     setText(RESET_ANIMATE_TEXT);
     setClassName('container');
-    setPointerClassName('pointercontainer');
-    setText('Resume?')
 }
-
 
 return (
     <main> 
@@ -104,9 +79,6 @@ return (
             <section className={ className }>
                 <div className='circle'></div>
                 <p id='text'> { text } </p>
-                <div className={ pointer }>
-                    <span className='pointer'></span>
-                </div>
                 <div className='gradient-circle'></div>
             </section>
             <Timer 

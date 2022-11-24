@@ -14,13 +14,10 @@ export default function Timer(props) {
 
   const startHandler = () => {
     setDuration(parseInt(START_SECOND, 10) + 60 * parseInt(START_MINUTES, 10));
-    // setMinutes(60 * 5);
-    // setSeconds(0);
     props.startAnimation();
     setIsRunning(true);
   };
   const stopHandler = () => {
-    // stop timer
     setIsStop(true);
     props.stopAnimation();
     setIsRunning(false);
@@ -77,7 +74,7 @@ export default function Timer(props) {
         {!isRunning && !isStop && (
           <button
             onClick={startHandler}
-            className="btn"
+            className="btnStart"
           >
             START
           </button>
@@ -85,7 +82,7 @@ export default function Timer(props) {
         {isRunning && (
           <button
             onClick={stopHandler}
-            className="btn"
+            className="btnStop"
           >
             STOP
           </button>
@@ -94,7 +91,7 @@ export default function Timer(props) {
         {isStop && (
           <button
             onClick={resumeHandler}
-            className="btn"
+            className="btnResume"
           >
             RESUME
           </button>
@@ -102,12 +99,11 @@ export default function Timer(props) {
 
         <button
           onClick={resetHandler}
-          className="btn"
+          className="btnReset"
           disabled={!isRunning && !isStop}
         >
           RESET
         </button>
-        {/* <p>{duration}</p> */}
     </div>
   );
 }
