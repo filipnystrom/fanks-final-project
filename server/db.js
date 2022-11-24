@@ -16,5 +16,18 @@ async function getJournals() {
   const collection = await connectToDb()  
   return (await collection.find({})).toArray();
 }
+async function getUser(id) {
+  const collection = await connectToDb()
+  return (await collection.find({userId: id})).toArray();
+}
 
-module.exports = { getJournals };
+async function addJournal(journal, id) {
+  const collection = await connectToDb()  
+  const result = await collection.updateOne(
+    {userId: id},
+    {$push:{entries: journal}}
+  );
+  return result.acknowledged && result.modifiedCount ===1
+}
+
+module.exports = { getJournals, getUser, addJournal };
