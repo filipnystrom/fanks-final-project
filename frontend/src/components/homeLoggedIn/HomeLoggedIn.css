@@ -1,0 +1,62 @@
+* {
+    padding: 0.2em;
+}
+
+.homeLoggedIn {
+    display: flex;
+    flex-direction: column;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8em;
+    justify-items: center;
+    margin-top: 2em;
+    padding-left: 10em;
+    padding-right: 10em;
+}
+
+.feature {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+}
+
+.feature:hover {
+    cursor: pointer;
+}
+
+.breathingBtn {
+    background-image: url('https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41407-022-0859-1/MediaObjects/41407_2022_859_Fig1_HTML.jpg');
+    background-size: cover;
+}
+
+.journalsBtn {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt14Io5tksYMy34uTYCfu3WbQ3aMS7kCcO_Q&usqp=CAU');
+    background-size: cover;
+}
+
+.sleepLogBtn {
+    background-image: url('https://image.shutterstock.com/image-vector/young-woman-sitting-bed-book-260nw-1623178741.jpg');
+    background-size: cover;
+}
+
+.queryBtn {
+    background-image: url('https://img.freepik.com/free-vector/pack-flat-people-asking-questions_23-2148910080.jpg?w=2000');
+    background-size: cover;
+}
+
+.profilePageBtn {
+    background-image: url('https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png');
+    background-size: cover;
+}
+
+p {
+    margin-top: 1em;
+}
+
+.logoutBtn {
+    align-self: flex-end;
+    margin-bottom: 0.7em;
+}

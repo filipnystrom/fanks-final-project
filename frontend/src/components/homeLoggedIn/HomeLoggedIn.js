@@ -4,7 +4,9 @@ import LogoutButton from '../login/LogoutButton';
 import Breathing from '../breathingExercise/Breathing';
 import Journal from '../journal/Journal';
 import SleepLog from '../sleepLog/SleepLog';
+import Query from '../queryExercise/Query';
 import ProfilePage from '../profilePage/ProfilePage';
+import './HomeLoggedIn.css'
 
 const HomeLoggedIn = () => {
     const [clicked, setClicked] = useState(false);
@@ -14,33 +16,58 @@ const HomeLoggedIn = () => {
         setClicked(e.target.className);
     }
 
-    if (clicked === 'breathingBtn') {
+    if (clicked === 'feature breathingBtn') {
         return (
             <Breathing />
         )
     };
-    if (clicked === 'journalsBtn') {
+    if (clicked === 'feature journalsBtn') {
         return (
             <Journal />
         )
     };
-    if (clicked === 'sleepLogBtn') {
+    if (clicked === 'feature sleepLogBtn') {
         return (
             <SleepLog />
         )
     };
-    if (clicked === 'profilePageBtn') {
+    if (clicked === 'feature queryBtn') {
+        return (
+            <Query />
+        )
+    };
+    if (clicked === 'feature profilePageBtn') {
         return (
             <ProfilePage />
         )
     };
     return (
-        <section>
-            <button className='breathingBtn' onClick={handleClick}>Breathing</button>
-            <button className='journalsBtn' onClick={handleClick}>Journals</button>
-            <button className='sleepLogBtn' onClick={handleClick}>Sleep Log</button>
-            <button className='profilePageBtn' onClick={handleClick}>Profile</button>
-            <LogoutButton />
+        <section className='homeLoggedIn'>
+            <div className='logoutBtn'>
+                <LogoutButton />
+            </div>
+            <section className='features'>
+                <div>
+                    <div className='feature breathingBtn' onClick={handleClick}></div>
+                    <p>Breathing</p>
+                </div>
+                <div>                    
+                    <div className='feature journalsBtn' onClick={handleClick}></div>
+                    <p>Journals</p>
+                </div>
+                <div>                
+                    <div className='feature sleepLogBtn' onClick={handleClick}></div>
+                    <p>Sleep Log</p>
+                </div>
+                <div>                
+                    <div className='feature queryBtn' onClick={handleClick}></div>
+                    <p>Query</p>
+                </div>
+                <div>
+                    <div className='feature profilePageBtn' onClick={handleClick}></div>
+                    <p>Profile</p>
+                </div>
+            </section>
         </section>
     )
 }
