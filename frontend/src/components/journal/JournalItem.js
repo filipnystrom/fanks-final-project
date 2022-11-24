@@ -10,6 +10,7 @@ export const JournalItem = (props) => {
         <p>{journal.Emotions}</p>
         <p>{journal.Reflection}</p>
       </section>
+         <button>Remove</button>
     </article>
   </li>
   )

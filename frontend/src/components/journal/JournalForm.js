@@ -15,7 +15,7 @@ export const JournalForm = (props) => {
         const journalData = {
             Thoughts: thoughtRef.current.value,
             Emotions: emotionRef.current.value,
-            Reflection: reflectionRef.current.value
+            Reflection: reflectionRef.current.value,
         }
         
         props.onAddJournalHandler(journalData);

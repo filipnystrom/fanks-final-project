@@ -25,7 +25,7 @@ app
     const journals = await db.getUser(id)
     return res
       .status(200)
-      .json(journals[0].entries);
+      .json(journals[0]);
   });
 
   app

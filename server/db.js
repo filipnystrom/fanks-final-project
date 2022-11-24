@@ -18,8 +18,15 @@ async function getJournals() {
 }
 async function getUser(id) {
   const collection = await connectToDb()
-  return (await collection.find({userId: id})).toArray();
+  const result = await collection.find({userId: id}).toArray();
+  if(result.length === 0){
+    const result1 = (await collection.insertOne({userId: id, entries: []}))
+    return result1
+  } else {
+  return result
+  }
 }
+
 
 async function addJournal(journal, id) {
   const collection = await connectToDb()  
