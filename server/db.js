@@ -49,4 +49,13 @@ async function deleteSleepLog(entryId, userId) {
               .updateOne({'userId': userId}, {$pullAll: {'entries': [{'entryId': entryId}]}});
 };
 
-module.exports = { getJournals, getSleepLogs, addToSleepLogs, deleteSleepLog };
+async function addNewUserSleepLog(newUser) {
+  const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+  const db = client.db();
+
+  setTimeout(() => client.close(), 1000);
+  return db.collection('sleepLog')
+              .insertOne(newUser);
+};
+
+module.exports = { getJournals, getSleepLogs, addToSleepLogs, deleteSleepLog, addNewUserSleepLog };

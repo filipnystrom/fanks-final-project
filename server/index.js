@@ -20,7 +20,7 @@ app
 
   app
     .route('/sleeplogs/')
-    .get(async (req, res) => {
+    .get(async (_, res) => {
       const result = await db.getSleepLogs();
       return res
         .status(200)
@@ -29,7 +29,7 @@ app
 
     app
     .route('/sleeplogs/:userId/')
-    .post(async (req, res) => {
+    .put((req, res) => {
       const { userId } = req.params;
       const newLog = req.body;
 
@@ -39,10 +39,19 @@ app
         .status(201)
         .json(result);
     })
+    .post((req, res) => {
+      const newUser = req.body;
+
+      const result = db.addNewUserSleepLog(newUser);
+
+      return res
+        .status(201)
+        .json(result);
+    })
     .delete(async (req, res) => {
       const { entryId, userId } = req.params;
 
-      console.log(userId);
+      console.log(userId, entryId);
       const result = db.deleteSleepLog(entryId, userId);
       return res
         .status(204)

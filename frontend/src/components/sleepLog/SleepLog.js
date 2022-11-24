@@ -9,19 +9,16 @@ const url = 'http://localhost:8080';
 const SleepLog = () => {
   const [sleepLog, setSleepLog] = useState(null);
   const { user } = useAuth0();
+  const userId = user.sub.replace('auth0|', '');
 
   const getSleepLogs = () => {
-    const userId = user.sub.replace('auth0|', '');
 
     fetch(`${url}/sleeplogs`)
       .then((res) => res.json())
-      .then((data) => setSleepLog(data.find(el => el.userId === userId)));
+      .then((data) => setSleepLog(data.find(el => el.userId === userId)))
   }
 
   useEffect(() => {
-    // if (!sleepLog) {
-    //   return;
-    // }
     return getSleepLogs();
   }, []);
 

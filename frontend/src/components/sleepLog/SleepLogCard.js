@@ -34,7 +34,7 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
 
   if (!isToggled) {
     return (
-      <div className="card" onClick={() => toggleCard()}>
+      <div className="card sleepLogCard notToggled" onClick={() => toggleCard()}>
         <p>{date}</p>
       </div>
     )
@@ -42,7 +42,7 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
 
   if (isToggled) {
     return (
-      <div className="card" onClick={() => toggleCard()}>
+      <div className="card sleepLogCard" onClick={() => toggleCard()}>
         <p>{date}</p>
         <p>{hours}</p>
         <p>{rate}</p>
