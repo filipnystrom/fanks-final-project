@@ -69,7 +69,12 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
       fetch(`${url}/sleeplogs/`)
         .then(res => res.json())
         .then((data) => setSleepLog(data.find(el => el.userId === userId)));
+    }).then(() => {
+      fetch(`${url}/sleeplogs/`)
+        .then(res => res.json())
+        .then((data) => setSleepLog(data.find(el => el.userId === userId)));
     })
+
     setWrongInput(false);
     return setNewLog({
       date: '',

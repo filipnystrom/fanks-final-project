@@ -41,18 +41,19 @@ app
     })
     .post((req, res) => {
       const newUser = req.body;
-
       const result = db.addNewUserSleepLog(newUser);
 
       return res
         .status(201)
         .json(result);
     })
+
+    app
+    .route('/sleeplogs/:userId/:entryId')
     .delete(async (req, res) => {
       const { entryId, userId } = req.params;
 
-      console.log(userId, entryId);
-      const result = db.deleteSleepLog(entryId, userId);
+      const result = await db.deleteSleepLog(entryId, userId);
       return res
         .status(204)
         .json(result);

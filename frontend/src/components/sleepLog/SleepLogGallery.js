@@ -1,11 +1,10 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from 'react';
 import SleepLogCard from "./SleepLogCard";
 
 
 const SleepLogGallery = ({ sleepLog, setSleepLog }) => {
-  const { user } = useAuth0();
   const [isToggled, setIsToggled] = useState(false);
+  
 
   const toggleCard = () => {
     if (!isToggled) {

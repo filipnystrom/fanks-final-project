@@ -43,10 +43,14 @@ async function deleteSleepLog(entryId, userId) {
   const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
   const db = client.db();
 
-  console.log('whereamI NOW AGAIN?!');
+
   setTimeout(() => client.close(), 1000);
+  console.log('mongodb whatsuuup now?');
   return db.collection('sleepLog')
-              .updateOne({'userId': userId}, {$pullAll: {'entries': [{'entryId': entryId}]}});
+              .update(
+                { 'userId': userId},
+                { $pull: { 'entries': { 'entryId': { $in: [entryId]} } } },
+              );
 };
 
 async function addNewUserSleepLog(newUser) {

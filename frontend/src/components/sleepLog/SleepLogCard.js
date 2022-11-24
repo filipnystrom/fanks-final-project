@@ -18,18 +18,19 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
   }
 
   const removeCard = (entryId, userId) => {
-    console.log('remove meeeee', userId);
-    fetch(`${url}/sleeplogs/${userId}/`, {
+    console.log('removeCard-function');
+    fetch(`${url}/sleeplogs/${userId}/${entryId}/`, {
       method: 'DELETE',
       params: {
         entryId: entryId,
         userId: userId,
       }
-    }).then(() => {
-      fetch(`${url}/sleeplogs`)
-      .then((res) => res.json())
-      .then((data) => setSleepLog(data.find(el => el.userId === userId)));
-  })
+    })
+    .then(() => {
+      fetch(`${url}/sleeplogs/`)
+        .then((res) => res.json())
+        .then((data) => setSleepLog(data.find(el => el.userId === userId)));
+    })
   }
 
   if (!isToggled) {
