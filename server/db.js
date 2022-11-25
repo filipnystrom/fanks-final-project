@@ -27,7 +27,6 @@ async function getUser(id) {
   }
 }
 
-
 async function addJournal(journal, id) {
   const collection = await connectToDb()  
   const result = await collection.updateOne(
@@ -37,4 +36,15 @@ async function addJournal(journal, id) {
   return result.acknowledged && result.modifiedCount ===1
 }
 
-module.exports = { getJournals, getUser, addJournal };
+async function removeJournal(id,entryId) {
+  const collection = await connectToDb()  
+  const result = await collection.deleteOne(
+    {userId: 'auth0|637de6260d87a4e6f15336c2'},
+    {$pull:{entries:{entryId:{$in:['1669321974024']}}}}
+  );
+
+  console.log(result,"result")
+  return result
+}
+
+module.exports = { getJournals, getUser, addJournal, removeJournal };

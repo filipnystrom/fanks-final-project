@@ -40,6 +40,18 @@ app
     }else
     res.status(401).json({"code":401,"message":"bad request"});      
   });
+
+  app
+  .route('/journals/:id')
+  .delete(async (req, res) => {
+    const id = 'auth0|'+req.params.id
+    const {entryId} = req.body
+    console.log(id)
+    const result = await db.removeJournal(id)
+    return res 
+    .status(204)
+    .json(result)
+    });
   
 
   app
