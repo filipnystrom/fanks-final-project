@@ -38,11 +38,7 @@ const Journal = ({ setClicked }) => {
 
     const result = await response.json();
     if (result.code === 201) {
-      setJournal((prevState) => {
-        const state = [...prevState];
-        state.push(reqBody);
-        return state;
-      });
+      getUser();
     }
   };
 
