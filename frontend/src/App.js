@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import HomeNotLoggedIn from './components/homeNotLoggedIn/HomeNotLoggedIn';
 import HomeLoggedIn from './components/homeLoggedIn/HomeLoggedIn';
+
 import { useAuth0 } from "@auth0/auth0-react";
 
 const url = 'http://localhost:8080';
@@ -19,10 +20,11 @@ function App() {
   useEffect(() => {
     getDb();
   }, []);
-
+  
   return (
     <div className="App">
       { isAuthenticated ? <HomeLoggedIn /> : <HomeNotLoggedIn /> }
+    
     </div>
   )
 }
