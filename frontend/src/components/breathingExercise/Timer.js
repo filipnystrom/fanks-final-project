@@ -3,50 +3,61 @@ import './Breathing.css';
 
 const START_MINUTES = "02";
 const START_SECOND = "00";
-const START_DERATION = 10;
+const START_DURATION = 10;
 
 export default function Timer(props) {
   const [currentMinutes, setMinutes] = useState(START_MINUTES);
   const [currentSeconds, setSeconds] = useState(START_SECOND);
   const [isStop, setIsStop] = useState(false);
-  const [duration, setDuration] = useState(START_DERATION);
+  const [duration, setDuration] = useState(START_DURATION);
   const [isRunning, setIsRunning] = useState(false);
 
   const startHandler = () => {
-    setDuration(parseInt(START_SECOND, 10) + 60 * parseInt(START_MINUTES, 10));
-    props.startAnimation();
-    setIsRunning(true);
+    setTimerState(
+      props.startAnimation, 
+      true, 
+      false, 
+      parseInt(START_SECOND, 10) + 60 * parseInt(START_MINUTES, 10)
+    );
   };
   const stopHandler = () => {
-    setIsStop(true);
-    props.stopAnimation();
-    setIsRunning(false);
+    setTimerState(props.stopAnimation, false, true);
   };
   const resetHandler = () => {
-    setMinutes(START_MINUTES);
-    setSeconds(START_SECOND);
-    setIsRunning(false);
-    setIsStop(false);
-    setDuration(START_DERATION);
-    props.resetAnimation();
+    setTimerState(props.resetAnimation, false, false, START_DURATION, START_MINUTES, START_SECOND);
   };
 
   const resumeHandler = () => {
-    let newDuration =
-      parseInt(currentMinutes, 10) * 60 + parseInt(currentSeconds, 10);
-    setDuration(newDuration);
-
-    setIsRunning(true);
-    props.resumeAnimation();
-    setIsStop(false);
+    setTimerState(
+      props.startAnimation, 
+      true, 
+      false, 
+      parseInt(currentMinutes, 10) * 60 + parseInt(currentSeconds, 10),
+      currentMinutes,
+      currentSeconds
+    );
   };
+
+  const setTimerState = (callback, isRunning, isStop, duration = null, minutes = null, seconds = null) => {
+    setIsRunning(isRunning);
+    setIsStop(isStop);
+    if (duration) {
+      setDuration(duration);
+    }
+    if (minutes) {
+      setMinutes(minutes);
+    }
+    if (seconds) {
+      setSeconds(seconds);
+    }
+    callback();
+  }
 
   useEffect(() => {
     if (isRunning === true) {
       let timer = duration;
       let minutes, seconds;
       const interval = setInterval(() => {
-        console.log('timer:', timer);
         if (--timer <= 0) {
           resetHandler();
         } else {
@@ -65,45 +76,32 @@ export default function Timer(props) {
   }, [isRunning]);
 
   return (
-    <div className="timer">
-        <div className="time">
+    <section className="timer">
+        <div className="minutes">
           {currentMinutes}
-          <span className="mx-3">:</span>
+          <span className="seconds">:</span>
           {currentSeconds}
         </div>
         {!isRunning && !isStop && (
-          <button
-            onClick={startHandler}
-            className="btnStart"
-          >
+          <button onClick={startHandler} className="btnStart">
             START
           </button>
         )}
         {isRunning && (
-          <button
-            onClick={stopHandler}
-            className="btnStop"
-          >
+          <button onClick={stopHandler} className="btnStop">
             STOP
           </button>
         )}
 
         {isStop && (
-          <button
-            onClick={resumeHandler}
-            className="btnResume"
-          >
+          <button onClick={resumeHandler} className="btnResume">
             RESUME
           </button>
         )}
 
-        <button
-          onClick={resetHandler}
-          className="btnReset"
-          disabled={!isRunning && !isStop}
-        >
+        <button onClick={resetHandler} className="btnReset" disabled={!isRunning && !isStop}>
           RESET
         </button>
-    </div>
+    </section>
   );
 }
