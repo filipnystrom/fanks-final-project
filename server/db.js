@@ -16,5 +16,35 @@ async function getJournals() {
   const collection = await connectToDb()  
   return (await collection.find({})).toArray();
 }
+async function getUser(id) {
+  const collection = await connectToDb()
+  const result = await collection.find({userId: id}).toArray();
+  if(result.length === 0){
+    const result1 = (await collection.insertOne({userId: id, entries: []}))
+    return result1
+  } else {
+  return result
+  }
+}
 
-module.exports = { getJournals };
+async function addJournal(journal, id) {
+  const collection = await connectToDb()  
+  const result = await collection.updateOne(
+    {userId: id},
+    {$push:{entries: journal}}
+  );
+  return result.acknowledged && result.modifiedCount ===1
+}
+
+async function removeJournal(id,entryId) {
+  const collection = await connectToDb()  
+  const result = await collection.deleteOne(
+    {userId: 'auth0|637de6260d87a4e6f15336c2'},
+    {$pull:{entries:{entryId:{$in:['1669321974024']}}}}
+  );
+
+  console.log(result,"result")
+  return result
+}
+
+module.exports = { getJournals, getUser, addJournal, removeJournal };

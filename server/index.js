@@ -10,13 +10,49 @@ app.use(express.json());
 app.use(cors());
 
 app
-  .route('/api')
+  .route('/journals')
   .get(async (req, res) => {
     const result = await db.getJournals();
     return res
       .status(200)
       .json(result);
   });
+
+  app
+  .route('/journals/:id')
+  .get(async (req, res) => {
+    const id = 'auth0|'+req.params.id
+    const journals = await db.getUser(id)
+    return res
+      .status(200)
+      .json(journals[0]);
+  });
+
+  app
+  .route('/journals/:id')
+  .post(async (req, res) => {
+    const id = 'auth0|'+req.params.id
+    const journal = req.body
+    if(id && journal){
+      const result = await db.addJournal(journal, id);
+      result ? res.status(201).json({"code":201,"message":"successfully added"}) : 
+      res.status(500).json({"code":500,"message":"internal server error"});      
+    }else
+    res.status(401).json({"code":401,"message":"bad request"});      
+  });
+
+  app
+  .route('/journals/:id')
+  .delete(async (req, res) => {
+    const id = 'auth0|'+req.params.id
+    const {entryId} = req.body
+    console.log(id)
+    const result = await db.removeJournal(id)
+    return res 
+    .status(204)
+    .json(result)
+    });
+  
 
   app
   .listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`));
