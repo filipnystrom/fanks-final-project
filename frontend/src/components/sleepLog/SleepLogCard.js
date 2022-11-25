@@ -18,7 +18,6 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
   }
 
   const removeCard = (entryId, userId) => {
-    console.log('removeCard-function');
     fetch(`${url}/sleeplogs/${userId}/${entryId}/`, {
       method: 'DELETE',
       params: {
@@ -36,7 +35,7 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
   if (!isToggled) {
     return (
       <div className="card sleepLogCard notToggled" onClick={() => toggleCard()}>
-        <p>{date}</p>
+        <h4>{date}</h4>
       </div>
     )
   }
@@ -44,7 +43,7 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
   if (isToggled) {
     return (
       <div className="card sleepLogCard" onClick={() => toggleCard()}>
-        <p>{date}</p>
+        <h4>{date}</h4>
         <p>{hours}</p>
         <p>{rate}</p>
         <p>{comments}</p>

@@ -30,34 +30,45 @@ async function getSleepLogs() {
   return (await collection.find({})).toArray();
 }
 async function getUser(id) {
-  const collection = await connectToDb()
-  const result = await collection.find({userId: id}).toArray();
-  if(result.length === 0){
-    const result1 = (await collection.insertOne({userId: id, entries: []}))
+  const collection = await connectToJournals()
+  const result = await collection.find({ userId: id }).toArray();
+  if (result.length === 0) {
+    const result1 = (await collection.insertOne({ userId: id, entries: [] }))
     return result1
   } else {
-  return result
+    return result
   }
 }
 
 async function addJournal(journal, id) {
-  const collection = await connectToDb()  
+  const collection = await connectToJournals()
   const result = await collection.updateOne(
-    {userId: id},
-    {$push:{entries: journal}}
+    { userId: id },
+    { $push: { entries: journal } }
   );
-  return result.acknowledged && result.modifiedCount ===1
+  return result.acknowledged && result.modifiedCount === 1
 }
 
-async function removeJournal(id,entryId) {
-  const collection = await connectToDb()  
-  const result = await collection.deleteOne(
-    {userId: 'auth0|637de6260d87a4e6f15336c2'},
-    {$pull:{entries:{entryId:{$in:['1669321974024']}}}}
-  );
+async function removeJournal(id, entryId) {
+  const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+  const db = client.db();
 
-  console.log(result,"result")
-  return result
+  console.log(id, entryId, 'whatup', typeof entryId)
+  setTimeout(() => client.close(), 1000);
+  return db.collection('journals')
+    .update(
+      { 'userId': id },
+      { $pull: { 'entries': { 'entryId': { $in: [entryId] } } } },
+    );
+  // const collection = await connectToJournals()
+  // console.log('heyoooo');
+  // return collection.update(
+  //   { 'userId': id },
+  //   { $pull: { 'entries': { 'entryId': { $in: [entryId] } } } },
+  // );
+
+  // console.log(result, "result")
+  // return result
 }
 
 async function addToSleepLogs(newLog, userId) {
@@ -66,7 +77,7 @@ async function addToSleepLogs(newLog, userId) {
 
   setTimeout(() => client.close(), 1000);
   return db.collection('sleepLog')
-              .updateOne({'userId': userId}, {$push: {'entries': newLog}});
+    .updateOne({ 'userId': userId }, { $push: { 'entries': newLog } });
 };
 
 async function deleteSleepLog(entryId, userId) {
@@ -75,12 +86,11 @@ async function deleteSleepLog(entryId, userId) {
 
 
   setTimeout(() => client.close(), 1000);
-  console.log('mongodb whatsuuup now?');
   return db.collection('sleepLog')
-              .update(
-                { 'userId': userId},
-                { $pull: { 'entries': { 'entryId': { $in: [entryId]} } } },
-              );
+    .update(
+      { 'userId': userId },
+      { $pull: { 'entries': { 'entryId': { $in: [entryId] } } } },
+    );
 };
 
 async function addNewUserSleepLog(newUser) {
@@ -89,7 +99,7 @@ async function addNewUserSleepLog(newUser) {
 
   setTimeout(() => client.close(), 1000);
   return db.collection('sleepLog')
-              .insertOne(newUser);
+    .insertOne(newUser);
 };
 
 module.exports = { getJournals, getSleepLogs, addToSleepLogs, deleteSleepLog, addNewUserSleepLog, getUser, addJournal, removeJournal };

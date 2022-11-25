@@ -1,18 +1,20 @@
 import Countdown from 'react-countdown';
 import { useState } from 'react';
+import BackButton from '../BackButton';
 
 const questions = [
-    'U feel, nice?',
-    'Is hard to get by?',
-    'Where u, going? In life.'
+    'What do you long for?',
+    'What is holding you back?',
+    'What excites you?',
+    'What are you afraid of?'
 ];
 
 const getRandomInt = max => {
     return Math.floor(Math.random() * max);
 }
 
-const Query = () => {
-    const [clicked, setClicked] = useState(null);
+const Query = ({ setClicked }) => {
+    const [clickedQuery, setClickedQuery] = useState(null);
     const [question, setQuestion] = useState('');
 
     const renderer2 = ({ hours, minutes, seconds, completed }) => {
@@ -24,14 +26,14 @@ const Query = () => {
 
     const renderer = ({ hours, minutes, seconds, completed }) => {
         if (completed) {
-            if (clicked === 'first') {
+            if (clickedQuery === 'first') {
                 return <div>
                     <h1>Now have your friend ask you the same question</h1>
                     <button onClick={handleClick}>Start</button>
                 </div>;
             }
         }
-        if (clicked === 'second') {
+        if (clickedQuery === 'second') {
             return <Countdown date={Date.now() + 3000} renderer={renderer2} />      
         }
         return <span>{seconds}</span>;
@@ -39,23 +41,24 @@ const Query = () => {
 
     const handleClick = e => {
         e.preventDefault();
-        if (!clicked) {
+        if (!clickedQuery) {
             setQuestion(questions[getRandomInt(3)]);
-            return setClicked('first')
+            return setClickedQuery('first')
         };
-        if (clicked === 'first') {
-            return setClicked('second')
+        if (clickedQuery === 'first') {
+            return setClickedQuery('second')
         };
-        return setClicked(null);
+        return setClickedQuery(null);
     }
 
     return (
         <section>
             <h1>Find a friend and ask each other these questions repeatedly until at least one of you is out of saliva. Click the button whenever you're ready!</h1>
-            {clicked ? <div>
+            {clickedQuery ? <div>
                 <h1>{question}</h1>
                 <Countdown date={Date.now() + 3000} renderer={renderer} />
             </div> : <button onClick={handleClick}>Start</button>}
+            <BackButton setClicked={setClicked} />
         </section>
     )
 }

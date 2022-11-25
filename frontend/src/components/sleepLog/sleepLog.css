@@ -1,14 +1,10 @@
 .sleepLog {
-  background-color: #cdc6c7;
-  padding: 20px 300px 500px;
-  color: #ea5990;
+  padding: 20px 0 500px;
+  color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-content: center;
-}
-
-.formSection {
-  padding: 20px;
+  width: 500px;
 }
 
 .card {
@@ -22,6 +18,11 @@
   color: whitesmoke;
   align-self: center;
   margin: 5px;
+}
+
+.formSection {
+  padding: 20px;
+  margin: 50px 0;
 }
 
 .logGallery {
@@ -49,7 +50,7 @@ form {
 button {
   width: fit-content;
   align-self: center;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
 }
 
 button:hover {
@@ -66,4 +67,8 @@ button:hover {
 
 .notToggled:hover {
   transform: scale(1.1);
+}
+
+h4 {
+  margin-bottom: 20px;
 }

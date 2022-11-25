@@ -2,11 +2,12 @@ import './sleepLog.css';
 import { useState, useEffect } from 'react';
 import SleepLogForm from './SleepLogForm';
 import SleepLogGallery from './SleepLogGallery';
+import BackButton from '../BackButton';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const url = 'http://localhost:8080';
 
-const SleepLog = () => {
+const SleepLog = ({ setClicked }) => {
   const [sleepLog, setSleepLog] = useState(null);
   const { user } = useAuth0();
   const userId = user.sub.replace('auth0|', '');
@@ -29,6 +30,7 @@ const SleepLog = () => {
 
       <SleepLogForm sleepLog={sleepLog} setSleepLog={setSleepLog} />
       <SleepLogGallery sleepLog={sleepLog} setSleepLog={setSleepLog} />
+      <BackButton setClicked={setClicked} />
     </section>
   )
 

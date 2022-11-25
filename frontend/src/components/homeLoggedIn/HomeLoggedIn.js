@@ -6,7 +6,7 @@ import Journal from '../journal/Journal';
 import SleepLog from '../sleepLog/SleepLog';
 import Query from '../queryExercise/Query';
 import ProfilePage from '../profilePage/ProfilePage';
-import './HomeLoggedIn.css'
+import './HomeLoggedIn.css';
 
 const HomeLoggedIn = () => {
     const [clicked, setClicked] = useState(false);
@@ -18,27 +18,27 @@ const HomeLoggedIn = () => {
 
     if (clicked === 'feature breathingBtn') {
         return (
-            <Breathing />
+            <Breathing setClicked={setClicked} />
         )
     };
     if (clicked === 'feature journalsBtn') {
         return (
-            <Journal />
+            <Journal setClicked={setClicked} />
         )
     };
     if (clicked === 'feature sleepLogBtn') {
         return (
-            <SleepLog />
+            <SleepLog setClicked={setClicked} />
         )
     };
-    if (clicked === 'feature queryBtn') {
+    if (clicked === 'feature queryBtn' ) {
         return (
-            <Query />
+            <Query setClicked={setClicked} />
         )
     };
     if (clicked === 'feature profilePageBtn') {
         return (
-            <ProfilePage />
+            <ProfilePage setClicked={setClicked} />
         )
     };
     return (

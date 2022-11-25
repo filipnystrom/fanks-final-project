@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Timer from './Timer';
 import './Breathing.css';
+import BackButton from '../BackButton';
 
-const Breathing = () => {
+const Breathing = ({ setClicked }) => {
     const RESET_ANIMATE_TEXT = 'Ready?';
     const [text, setText] = useState(RESET_ANIMATE_TEXT);
     const [className, setClassName] = useState('container');
@@ -82,6 +83,7 @@ const Breathing = () => {
                     stopAnimation={stopAnimation}
                     resetAnimation={resetAnimation}
                 />
+                <BackButton setClicked={setClicked} />
         </main>
     );
 }
