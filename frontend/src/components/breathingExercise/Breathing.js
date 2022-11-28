@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Timer from './Timer';
 import './Breathing.css';
-import BackButton from '../BackButton';
+import closeButton from '../../assets/images/close_icon.svg';
+import { Link } from "react-router-dom";
 
 const Breathing = ({ setClicked }) => {
     const RESET_ANIMATE_TEXT = 'Ready?';
@@ -71,8 +72,9 @@ const Breathing = ({ setClicked }) => {
     }
 
     return (
-        <main> 
-            <h4>Breathe</h4>
+        <main>
+            <h4>Breathing</h4>
+            <li><li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li></li>
                 <section className={ className }>
                     <span className='circle'></span>
                     <p id='text'> { text } </p>
@@ -83,7 +85,6 @@ const Breathing = ({ setClicked }) => {
                     stopAnimation={stopAnimation}
                     resetAnimation={resetAnimation}
                 />
-                <BackButton setClicked={setClicked} />
         </main>
     );
 }

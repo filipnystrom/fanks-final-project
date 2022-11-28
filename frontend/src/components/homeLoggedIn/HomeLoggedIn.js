@@ -1,11 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import LogoutButton from '../login/LogoutButton';
-import Breathing from '../breathingExercise/Breathing';
-import Journal from '../journal/Journal';
-import SleepLog from '../sleepLog/SleepLog';
-import Query from '../queryExercise/Query';
-import ProfilePage from '../profilePage/ProfilePage';
 import './HomeLoggedIn.css';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -15,89 +10,71 @@ import logo from '../../assets/images/sprout_logo.svg';
 import SproutWelcome from '../../assets/images/SproutWelcome.svg';
 
 const HomeLoggedIn = () => {
-    const [clicked, setClicked] = useState(false);
     const { isAuthenticated } = useAuth0();
-
-    const handleClick = e => {
-        e.preventDefault();
-        setClicked(e.target.className);
-    }
-
-    if (clicked === 'feature breathingBtn') {
-        return (
-            <Breathing setClicked={setClicked} />
-        )
-    };
-    if (clicked === 'feature journalsBtn') {
-        return (
-            <Journal setClicked={setClicked} />
-        )
-    };
-    if (clicked === 'feature sleepLogBtn') {
-        return (
-            <SleepLog setClicked={setClicked} />
-        )
-    };
-    if (clicked === 'feature queryBtn' ) {
-        return (
-            <Query setClicked={setClicked} />
-        )
-    };
-    if (clicked === 'feature profilePageBtn') {
-        return (
-            <ProfilePage setClicked={setClicked} />
-        )
-    };
     return (
         <>
-        { isAuthenticated && <section className='homeLoggedIn'>
-            <div className='logoutBtn'>
-                <LogoutButton />
-            </div>
+        { isAuthenticated && <section className='centerColumn'>
+            <section className="navBar homeHeader">
+                <div><Link to='/'><img src={logo} onClick={HomeLoggedIn} alt='home' ></img></Link></div>
+                <Link to='/profilepage'><button className='profileBtn'>MY PROFILE</button></Link>
+            </section>
             <section className='features'>
                 <div>
-                    <div className='feature breathingBtn'></div>
-                    <p><Link to='/breathing'>Breathing</Link></p>
-                </div>
-                <div>                    
-                    <div className='feature journalsBtn'></div>
-                    <p><Link to='/journal'>Journal</Link></p>
-                </div>
-                <div>                
-                    <div className='feature sleepLogBtn'></div>
-                    <p><Link to='/sleeplog'>Sleep Log</Link></p>
-                </div>
-                <div>                
-                    <div className='feature queryBtn'></div>
-                    <p><Link to='/query'>Query</Link></p>
+                    <Link to='/breathing'><div className='feature breathingBtn'></div></Link>
+                    <p>Breathing</p>
                 </div>
                 <div>
+                    <Link to='/journal'><div className='feature journalsBtn'></div></Link>
+                    <p>Journal</p>
+                </div>
+                <div>
+                    <Link to='/sleeplog'><div className='feature sleepLogBtn'></div></Link>
+                    <p>Sleep Log</p>
+                </div>
+                <div>
+                    <Link to='/query'><div className='feature queryBtn'></div></Link>
+                    <p>Pair Up</p>
+                </div>
+                {/* <div>
                     <div className='feature profilePageBtn'></div>
                     <p><Link to='/profilepage'>Profile Page</Link></p>
-                </div>
+                </div> */}
             </section>
         </section>}
+        
         { !isAuthenticated && 
             <>
-                <ul>
+                <ul className="navBar">
                     <li><Link to='/'><img src={logo} onClick={HomeLoggedIn} alt='home' ></img></Link></li>
-                    <li><LoginButton /></li>
+                    <li><LoginButton text={'LOGIN'} name={'login'}/></li>
                 </ul>
 
-                <main>
                     <img className='welcome' src={SproutWelcome} alt='welcome'></img>
+                <main>
                     <h1>Meditate with Sprout</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and and over the moon. 
+                    <p className='description'>Lorem Ipsum is simply dummy text of the printing and and over the moon. 
                     Typesetting industry. Meditate with Sprout. Sign up now - it’s free! 
                     Just take a minute to sign up now. Lorem Ipsum is simply dummy text of 
                     the printing and typesetting industry. Come on sign up now!</p>
+                    <div className='loginBtnContainer'><LoginButton text={'SIGN UP'} name={'signup'}/></div>
+                  <section className="commentSection">
+                      <card className="userComment">
+                        <p className="quote comment">"I am rather keen on this specific internet web application website!"</p>
+                        <p className="comment">- Nuno, 28</p>
+                      </card>
+                      <card className="userComment">
+                        <p className="quote comment">"Sprout is so easy to use, and fun too!"</p>
+                        <p className="comment">- Katy, 32</p>
+                      </card>
+                      <card className="userComment">
+                        <p className="quote comment">"I love this web app!"</p>
+                        <p className="comment">- Sedi, 26</p>
+                      </card>
+                  </section>
                 </main>
-                <section>
-                    <p>"I love this web app!"</p>
-                </section>
-                <footer>
-                    <p> © 2022 Sprout
-                    This web app is an open source by FANKS. Visit our GitHub.</p>
+                <footer className='footer__container'>
+                    <p className='footer'> © 2022 Sprout</p>
+                    <p className='footer' >This web app is an open source by FANKS. Visit our <a href="https://github.com/filipnystrom/fanks-final-project" target="_blank" className='github'>GitHub.</a></p>
                 </footer>
             </>
         }

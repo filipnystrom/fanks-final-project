@@ -1,24 +1,15 @@
-* {
-  box-sizing: border-box;
-}
-
-/* body {
-  background: #224941;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 16px;
-} */
-
 h4 {
-  margin-bottom: 104px;
+  margin-left: 16px;
+  margin-top: 24px;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-weight: 400;
 }
 
-.container {
+.container-circle {
   display: flex;
+  background-color: blue;
+  color: blue;
   align-items: center;
   justify-content: center;
   margin: auto;

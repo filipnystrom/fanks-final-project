@@ -4,6 +4,8 @@ import SleepLogForm from './SleepLogForm';
 import SleepLogGallery from './SleepLogGallery';
 import BackButton from '../BackButton';
 import { useAuth0 } from '@auth0/auth0-react';
+import closeButton from '../../assets/images/close_icon.svg';
+import { Link } from 'react-router-dom';
 
 const url = 'http://localhost:8080';
 
@@ -24,9 +26,11 @@ const SleepLog = ({ setClicked }) => {
   }, []);
 
   return (
-    <section className="sleepLog">
-      <h1>Your Sleeplog!</h1>
-      <h3>Here you can fill in your sleeplog! It's really good to keep track of your sleep, and sleep is like super important to be able to grow as a person or whatever...</h3>
+    <section className="centerColumn">
+      <ul className="navBar sleepHeader">
+        <li><p>Sleep Log</p></li>
+        <li><li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li></li>
+      </ul>
 
       <SleepLogForm sleepLog={sleepLog} setSleepLog={setSleepLog} />
       <SleepLogGallery sleepLog={sleepLog} setSleepLog={setSleepLog} />

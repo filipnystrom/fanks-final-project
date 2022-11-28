@@ -3,6 +3,9 @@ import { JournalForm } from "./JournalForm";
 import { JournalList } from "./JournalList";
 import { useAuth0 } from "@auth0/auth0-react";
 import BackButton from "../BackButton";
+import './Journal.css';
+import sproutPen from '../../assets/images/sprout_withpencil.svg';
+import closeButton from '../../assets/images/close_icon.svg';
 const { v4: uuidv4 } = require("uuid");
 
 const url = "http://localhost:8080/journals/";
@@ -43,29 +46,33 @@ const Journal = ({ setClicked }) => {
   };
 
   const removeJournalHandler = async entryId => {
-    const response = await fetch(`${url + id}/${entryId}/`,{
-      method:"DELETE",
+    const response = await fetch(`${url + id}/${entryId}/`, {
+      method: "DELETE",
       mode: "cors",
       params: {
         entryId: entryId,
         userId: id,
       }
     })
-    
-    if (response.status!== 204) return;
+
+    if (response.status !== 204) return;
 
     return getUser();
   };
 
   return (
     <>
+      <header className="journal__header" >
+      <h4 >Daily Journal</h4>
+      </header>
+      <img src={sproutPen} className='journal__logo'></img>
       <JournalForm onAddJournalHandler={addJournalsHandler} />
       <JournalList
-       items={journal}
-       onRemoveJournal={removeJournalHandler}
-        
-       />
-       <BackButton setClicked={setClicked} />
+        items={journal}
+        onRemoveJournal={removeJournalHandler}
+
+      />
+      <BackButton setClicked={setClicked} />
     </>
   );
 };

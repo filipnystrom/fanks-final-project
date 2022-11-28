@@ -1,7 +1,5 @@
 import './App.css';
-import { useState, useEffect, Fragment } from 'react';
-import HomeNotLoggedIn from './components/homeNotLoggedIn/HomeNotLoggedIn';
-import { useAuth0 } from "@auth0/auth0-react";
+import { Fragment } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomeLoggedIn from './components/homeLoggedIn/HomeLoggedIn';
 import ProfilePage from './components/profilePage/ProfilePage';
@@ -11,22 +9,7 @@ import Query from './components/queryExercise/Query';
 import SleepLog from './components/sleepLog/SleepLog';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
 
-const url = 'http://localhost:8080';
-
 function App() {
-  const [data, setData] = useState(null);
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  const getDb = () => {
-    fetch(`${url}/journals`)
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }
-
-  useEffect(() => {
-    // getDb();
-  }, []);
-
   return (
     <Fragment>
       <Routes>

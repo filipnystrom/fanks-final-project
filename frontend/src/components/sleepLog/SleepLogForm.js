@@ -94,7 +94,6 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
 
   return (
     <section className="formSection card">
-      <h3>Add today's sleeplog here:</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="date">Date:</label>
         <input
@@ -157,7 +156,7 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
           onChange={handleChange}
         />
 
-        <button type="submit">Submit!</button>
+        <button type="submit" className="loginBtn">SUBMIT</button>
       </form>
       {(wrongInput === true) && <h4 className="errorMessage">Please fill in your log to submit!</h4>}
     </section>

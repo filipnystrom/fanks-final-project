@@ -8,13 +8,13 @@ body {
   background: #FDFFF9;
 }
 
-ul {
+/* ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #666;
-}
+} */
 
 li {
   float: left;

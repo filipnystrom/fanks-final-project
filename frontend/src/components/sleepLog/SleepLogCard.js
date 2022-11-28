@@ -47,10 +47,10 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
         <p>{hours}</p>
         <p>{rate}</p>
         <p>{comments}</p>
-        <button onClick={(e) => {
+        <button className="loginBtn" onClick={(e) => {
           e.stopPropagation();
           removeCard(entryId, userId);
-        }}>Remove sleeplog</button>
+        }}>REMOVE</button>
       </div>
     )
   }
