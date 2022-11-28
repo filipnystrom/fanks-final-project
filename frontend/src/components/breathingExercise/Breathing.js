@@ -6,29 +6,29 @@ import BackButton from '../BackButton';
 const Breathing = ({ setClicked }) => {
     const RESET_ANIMATE_TEXT = 'Ready?';
     const [text, setText] = useState(RESET_ANIMATE_TEXT);
-    const [className, setClassName] = useState('container');
+    const [className, setClassName] = useState('container-circle');
     const [isRunning, setIsRunning] = useState(false);
     let [animateDuration, setAnimateDuration] = useState(0);
 
     const animationStates = [
         {
             text: RESET_ANIMATE_TEXT,
-            className: 'container',
+            className: 'container-circle',
         }, 
         {
             text: 'Breathe In!',
-            className: 'container grow',
+            className: 'container-circle grow',
         }, 
         {
             text: 'Hold',
         }, 
         {
             text: 'Breathe Out!',
-            className: 'container shrink',
+            className: 'container-circle shrink',
         },
         {
             text: 'Resume?',
-            className: 'container',
+            className: 'container-circle',
         }
     ]
 

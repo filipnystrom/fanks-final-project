@@ -1,12 +1,15 @@
-const BackButton = ({ setClicked }) => {
-  const backButtonHandler = (e) => {
-    e.preventDefault();
-    setClicked(false);
-  }
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const BackButton = () => {
 
   return (
-    <button onClick={backButtonHandler}>Back</button>
+    <Link to="/">
+     <button type="button">
+          HOME
+     </button>
+ </Link>
   )
-}
+} 
 
 export default BackButton;
