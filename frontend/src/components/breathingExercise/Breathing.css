@@ -1,18 +1,22 @@
+.breathingHeader{
+  margin: 0px;
+  background-color: var(--main-background);
+}
+
 h4 {
-  margin-left: 16px;
-  margin-top: 24px;
   color: var(--text-color);
   font-family: var(--body-font);
   font-weight: 400;
+  padding-top: 16px;
 }
 
 .container-circle {
   display: flex;
-  background-color: blue;
-  color: blue;
+  color: var(--text-color);
   align-items: center;
   justify-content: center;
   margin: auto;
+  margin-top: 160px;
   height: 200px;
   width: 200px;
   position: relative;
@@ -20,7 +24,8 @@ h4 {
 }
 
 .circle {
-  background-color: #010f1c;
+  background-color: #A1BBFA;
+  padding: 0px;
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -30,25 +35,14 @@ h4 {
   z-index: -1;
 }
 
-.gradient-circle {
-  background: conic-gradient(
-    #4ca493 0%,
-    #4ca493 40%,
-    #4ca493 40%,
-    #4ca493 60%,
-    #4ca493 60%,
-    #4ca493 100%
-  );
-  height: 220px;
-  width: 220px;
-  z-index: -2;
-  border-radius: 50%;
-  position: absolute;
-  top: -10px;
-  left: -10px;
+.text {
+  text-align: center;
+  font-family: var(--header-font);
+  font-weight: 700;
+  font-size: 24px;
 }
 
-.container.grow {
+.container-circle.grow {
   animation: grow 3s linear forwards;
 }
 
@@ -62,7 +56,7 @@ h4 {
   }
 }
 
-.container.shrink {
+.container-circle.shrink {
   animation: shrink 3s linear forwards;
 }
 
@@ -77,5 +71,67 @@ h4 {
 }
 
 .timer {
-  margin-top: 104px;
+  margin-top: 64px;
+  font-family: var(--body-font);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.minutes {
+  margin-bottom: 8px;
+}
+
+.btnStart , .btnResume {
+  height: 32px;
+  line-height: 16px;
+  background-color: #FD994B;
+  border-radius: 4px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--header-font);
+  color: var(--text-color);
+  margin-right: 4px;
+}
+
+.btnReset , .btnStop {
+  height: 32px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 10px;
+  color: #2E5DA4;
+  border: 1px solid #2E5DA4;
+  border-radius: 4px;
+  background-color: #FDFFF9;
+  font-family: var(--header-font);
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+@media (min-width: 320px) {
+  body {
+    background-color: var(--main-background);
+  }
+}
+
+@media (min-width: 768px) {
+  .breathingHeader {
+    padding: 24px 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .breathingHeader {
+    padding: 24px 142px;
+  }
 }

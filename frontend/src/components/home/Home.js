@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import LogoutButton from '../login/LogoutButton';
-import './HomeLoggedIn.css';
+import './Home.css';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
 import LoginButton from '../login/LoginButton';
 import logo from '../../assets/images/sprout_logo.svg';
-import SproutWelcome from '../../assets/images/SproutWelcome.svg';
+import SproutWelcome from '../../assets/images/SproutWelcome.svg'; 
 
-const HomeLoggedIn = () => {
-    const { isAuthenticated } = useAuth0();
+const Home = () => {
+    const { isAuthenticated, isLoading } = useAuth0();
     return (
         <>
-        { isAuthenticated && <section className='centerColumn'>
+        { isAuthenticated && !isLoading && <section className='centerColumn'>
             <section className="navBar homeHeader">
-                <div><Link to='/'><img src={logo} onClick={HomeLoggedIn} alt='home' ></img></Link></div>
+                <div><Link to='/'><img src={logo} onClick={Home} alt='home' ></img></Link></div>
                 <Link to='/profilepage'><button className='profileBtn'>MY PROFILE</button></Link>
             </section>
             <section className='features'>
@@ -42,10 +42,10 @@ const HomeLoggedIn = () => {
             </section>
         </section>}
         
-        { !isAuthenticated && 
+        { !isAuthenticated && !isLoading &&
             <>
                 <ul className="navBar">
-                    <li><Link to='/'><img src={logo} onClick={HomeLoggedIn} alt='home' ></img></Link></li>
+                    <li><Link to='/'><img src={logo} onClick={Home} alt='home' ></img></Link></li>
                     <li><LoginButton text={'LOGIN'} name={'login'}/></li>
                 </ul>
 
@@ -58,18 +58,18 @@ const HomeLoggedIn = () => {
                     the printing and typesetting industry. Come on sign up now!</p>
                     <div className='loginBtnContainer'><LoginButton text={'SIGN UP'} name={'signup'}/></div>
                   <section className="commentSection">
-                      <card className="userComment">
+                      <div className="userComment">
                         <p className="quote comment">"I am rather keen on this specific internet web application website!"</p>
                         <p className="comment">- Nuno, 28</p>
-                      </card>
-                      <card className="userComment">
+                      </div>
+                      <div className="userComment">
                         <p className="quote comment">"Sprout is so easy to use, and fun too!"</p>
                         <p className="comment">- Katy, 32</p>
-                      </card>
-                      <card className="userComment">
+                      </div>
+                      <div className="userComment">
                         <p className="quote comment">"I love this web app!"</p>
                         <p className="comment">- Sedi, 26</p>
-                      </card>
+                      </div>
                   </section>
                 </main>
                 <footer className='footer__container'>
@@ -82,4 +82,4 @@ const HomeLoggedIn = () => {
     )
 }
 
-export default HomeLoggedIn;
+export default Home;
