@@ -97,7 +97,7 @@
   padding-right: 16px;
   font-family: var(--header-font);
   color: var(--text-color);
-  margin-right: 4px;
+  margin-right: 24px;
 }
 
 .btnReset , .btnStop {

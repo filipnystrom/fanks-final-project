@@ -2,7 +2,7 @@ import Countdown from 'react-countdown';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import closeButton from '../../assets/images/close_icon.svg';
-import queryImg from '../../assets/images/pairup_BottomImage.svg';
+import queryImg from '../../assets/images/holdHands.svg';
 import './Query.css';
 
 const questions = [
@@ -22,7 +22,7 @@ const Query = ({ setClicked }) => {
 
     const renderer2 = ({ minutes, seconds, completed }) => {
         if (completed) {
-            return <div><h4 className='queryGreat'>Great!</h4><button className='startBtnQuery'onClick={handleClick}>DONE</button></div>
+            return <div><h2 className='queryGreat'>Great!</h2><button className='startBtnQuery'onClick={handleClick}>DONE</button></div>
         }
         return <div className='queryTimer'>{minutes}0:0{seconds}</div>;
     }
@@ -61,7 +61,7 @@ const Query = ({ setClicked }) => {
                     <div className='queryHomeBtn'><Link to='/'><img src={closeButton} alt='home' ></img></Link></div>
                 </section>
                 {clickedQuery ? <div>
-                    <h1 className='queryQuestion'>{question}</h1>
+                    <h4 className='queryQuestion'>{question}</h4>
                     <Countdown date={Date.now() + 3000} renderer={renderer} />
                 </div> :
                 <section className='stepSection'>
