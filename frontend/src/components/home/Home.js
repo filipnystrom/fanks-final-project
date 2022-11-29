@@ -15,7 +15,7 @@ const Home = () => {
         <>
         { isAuthenticated && !isLoading && <section className='centerColumn'>
             <section className="navBar homeHeader">
-                <div><Link to='/'><img src={logo} onClick={Home} alt='home' ></img></Link></div>
+                <div><Link to='/'><img src={logo} alt='home' ></img></Link></div>
                 <Link to='/profilepage'><button className='profileBtn'>MY PROFILE</button></Link>
             </section>
             <section className='features'>
