@@ -6,6 +6,7 @@ import BackButton from "../BackButton";
 import './Journal.css';
 import sproutPen from '../../assets/images/sprout_withpencil.svg';
 import closeButton from '../../assets/images/close_icon.svg';
+import { Link } from 'react-router-dom';
 const { v4: uuidv4 } = require("uuid");
 
 const url = "http://localhost:8080/journals/";
@@ -25,10 +26,12 @@ const Journal = ({ setClicked }) => {
     getUser();
   }, []);
 
+  const today = new Date();
+  const currentDate = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
+
   const addJournalsHandler = async (enteredJournal) => {
     const { Thoughts, Emotions, Reflection } = enteredJournal;
-    const reqBody = { Thoughts, Emotions, Reflection, entryId: uuidv4(), done: false };
-
+    const reqBody = { Thoughts, Emotions, Reflection, entryId: uuidv4(), date: currentDate };
     const response = await fetch(url + id, {
       method: "POST",
       mode: "cors",
@@ -63,7 +66,8 @@ const Journal = ({ setClicked }) => {
   return (
     <>
       <header className="journal__header" >
-      <h4 >Daily Journal</h4>
+        <h4 className="headername">Daily Journal</h4>
+        <Link to='/'><img src={closeButton} alt='home' ></img></Link>
       </header>
       <img src={sproutPen} className='journal__logo'></img>
       <JournalForm onAddJournalHandler={addJournalsHandler} />

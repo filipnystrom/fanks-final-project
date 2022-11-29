@@ -1,6 +1,7 @@
 import Countdown from 'react-countdown';
 import { useState } from 'react';
 import BackButton from '../BackButton';
+import './Query.css';
 
 const questions = [
     'What do you long for?',
@@ -53,8 +54,13 @@ const Query = ({ setClicked }) => {
 
     return (
         <section>
-            <h1>Find a friend and ask each other these questions repeatedly until at least one of you is out of saliva. Click the button whenever you're ready!</h1>
+            <h4>Pair Up</h4>
+            <p><span className='stepSpan'>Step 1:</span>Find a buddy to do this activity with</p>
+            <p><span className='stepSpan'>Step 2:</span>Get your pair to ask the provided question</p>
+            <p><span className='stepSpan'>Step 3:</span>You will get a minute to answer, answer whatever comes to your mind</p>
+            <p><span className='stepSpan'>Step 4:</span>Switch places and repeat. Ready?</p>
             {clickedQuery ? <div>
+                <h4>Pair Up</h4>
                 <h1>{question}</h1>
                 <Countdown date={Date.now() + 3000} renderer={renderer} />
             </div> : <button onClick={handleClick}>Start</button>}

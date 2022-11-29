@@ -12,8 +12,9 @@ export const JournalItem = (props) => {
     <li >
     <article  >
       <section  onClick={showDeleteButtonHandler}>
-        <h2>{journal.Thoughts}</h2>
+        <h2>{journal.date}</h2>
         {showDelete && <section>
+          <p>{journal.Thoughts}</p>
           <p>{journal.Emotions}</p>
         <p>{journal.Reflection}</p>
         <button  onClick={removeHamdler}>Remove</button>

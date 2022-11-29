@@ -7,15 +7,35 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0px;
+  /* letter-spacing: 0px;
   text-align: left;
   padding-top: 24px;
   padding-left: 16px;
   padding-bottom: 56px;
-  padding-right: 208px;
+  padding-right: 208px; */
 }
+
+.headername {
+  position: absolute;
+  width: 96px;
+  height: 24px;
+  left: 16px;
+  top: 105px;
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 .journal__logo {
   margin-top: -170px;
   margin-left: 285px;
 
+}
+.signout{
+  margin-top: 110px;
+  margin-right: 100px;
+  background-color: blue;
 }

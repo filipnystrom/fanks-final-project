@@ -35,22 +35,25 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
   if (!isToggled) {
     return (
       <div className="card sleepLogCard notToggled" onClick={() => toggleCard()}>
-        <h4>{date}</h4>
+        <p className="bold">{date}</p>
       </div>
     )
   }
 
   if (isToggled) {
     return (
-      <div className="card sleepLogCard" onClick={() => toggleCard()}>
-        <h4>{date}</h4>
-        <p>{hours}</p>
-        <p>{rate}</p>
+      <div className="sleepLogCard" onClick={() => toggleCard()}>
+        <div className="sleepLogNav">
+          <p className="bold">{date}</p>
+          <button className="loginBtn" onClick={(e) => {
+            e.stopPropagation();
+            removeCard(entryId, userId);
+          }}>REMOVE</button>
+        </div>
+        
+        <p>Hours of sleep: {hours}</p>
+        <p>How did I sleep: {rate}</p>
         <p>{comments}</p>
-        <button className="loginBtn" onClick={(e) => {
-          e.stopPropagation();
-          removeCard(entryId, userId);
-        }}>REMOVE</button>
       </div>
     )
   }

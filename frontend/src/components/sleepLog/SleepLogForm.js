@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import sleepTerrible from '../../assets/images/sleep_terrible.svg';
+import sleepOk from '../../assets/images/sleep_okey.svg';
+import sleepGreat from '../../assets/images/sleep_great.svg';
 const { v4: uuidv4 } = require("uuid");
 
 const url = 'http://localhost:8080';
@@ -106,7 +109,9 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
 
         <label htmlFor="rate">How would I rate my sleep?</label>
         <div className="radio">
-          <label>
+          <label className="radioButton">
+            <img src={sleepTerrible} />
+            Terrible
             <input
               type="radio"
               name="rate"
@@ -114,10 +119,11 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
               checked={newLog.rate === 'Terrible'}
               onChange={handleChange}
             />
-            Terrible
           </label>
         
-          <label>
+          <label className="radioButton">
+            <img src={sleepOk} />
+            Not bad
             <input
               type="radio"
               name="rate"
@@ -125,10 +131,11 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
               checked={newLog.rate === 'Not bad'}
               onChange={handleChange}
             />
-            Not bad
           </label>
         
-          <label>
+          <label className="radioButton">
+            <img src={sleepGreat} />
+            Great!
             <input
             type="radio"
             name="rate"
@@ -136,7 +143,6 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
             checked={newLog.rate === 'Great!'}
             onChange={handleChange}
           />
-            Great!
           </label>
         </div>
 
@@ -149,7 +155,7 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
           onChange={handleChange}
         />
 
-        <button type="submit" className="loginBtn">SUBMIT</button>
+        <button type="submit" className="loginBtn">SAVE</button>
       </form>
       {(wrongInput === true) && <h4 className="errorMessage">Please fill in your log to submit!</h4>}
     </section>

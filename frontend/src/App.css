@@ -77,12 +77,6 @@ li a {
   margin-bottom: 32px;
 }
 
-.welcome {
-  width: 375px;
-  height: 327px;
-  margin-top: 64px;
-}
-
 .navBar {
   display: flex;
   flex-direction: row;
@@ -91,7 +85,6 @@ li a {
   position: fixed;
   width: 100%;
 }
-
 
 h1 {
   font-size: 32px;
@@ -136,4 +129,28 @@ main, footer {
 
 .github{
   color: var(--primary-color);
+}
+
+@media (min-width: 320px) {
+  .welcome {
+    width: 375px;
+    height: 348px;
+    margin-top: 64px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .welcome {
+    width: 375px;
+    height: 348px;
+    margin-top: 64px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .breathingHeader {
+    padding: 24px 142px;
+  }
 }

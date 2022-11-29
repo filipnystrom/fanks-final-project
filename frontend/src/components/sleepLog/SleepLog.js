@@ -26,7 +26,7 @@ const SleepLog = ({ setClicked }) => {
   }, []);
 
   return (
-    <section className="centerColumn">
+    <section className="centerColumn sleepLog">
       <ul className="navBar sleepHeader">
         <li><p>Sleep Log</p></li>
         <li><li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li></li>

@@ -29,10 +29,6 @@ img {
     cursor: pointer;
 }
 
-div > p {
-  text-align: center;
-}
-
 .breathingBtn {
     background-image: url('../../assets/images/breathing.svg');
     background-size: cover;
@@ -107,4 +103,8 @@ div > p {
 
 .quote {
   font-weight: 700;
+}
+
+.featureDiv > p {
+  text-align: center;
 }

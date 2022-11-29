@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useState } from 'react';
-import LogoutButton from '../login/LogoutButton';
+/* import { useState } from 'react';
+import LogoutButton from '../login/LogoutButton'; */
 import './Home.css';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -15,23 +15,23 @@ const Home = () => {
         <>
         { isAuthenticated && !isLoading && <section className='centerColumn'>
             <section className="navBar homeHeader">
-                <div><Link to='/'><img src={logo} alt='home' ></img></Link></div>
+                <div><img src={logo} alt='home' ></img></div>
                 <Link to='/profilepage'><button className='profileBtn'>MY PROFILE</button></Link>
             </section>
             <section className='features'>
-                <div>
+                <div className='featureDiv'>
                     <Link to='/breathing'><div className='feature breathingBtn'></div></Link>
                     <p>Breathing</p>
                 </div>
-                <div>
+                <div className='featureDiv'>
                     <Link to='/journal'><div className='feature journalsBtn'></div></Link>
                     <p>Journal</p>
                 </div>
-                <div>
+                <div className='featureDiv'>
                     <Link to='/sleeplog'><div className='feature sleepLogBtn'></div></Link>
                     <p>Sleep Log</p>
                 </div>
-                <div>
+                <div className='featureDiv'>
                     <Link to='/query'><div className='feature queryBtn'></div></Link>
                     <p>Pair Up</p>
                 </div>
