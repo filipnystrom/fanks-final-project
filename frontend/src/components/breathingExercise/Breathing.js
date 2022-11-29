@@ -3,6 +3,7 @@ import Timer from './Timer';
 import './Breathing.css';
 import closeButton from '../../assets/images/close_icon.svg';
 import { Link } from "react-router-dom";
+import circle from '../../assets/images/breathing_circle.svg';
 
 const Breathing = ({ setClicked }) => {
     const RESET_ANIMATE_TEXT = 'Ready?';
@@ -17,14 +18,14 @@ const Breathing = ({ setClicked }) => {
             className: 'container-circle',
         }, 
         {
-            text: 'Breathe In!',
+            text: 'Breathe In',
             className: 'container-circle grow',
         }, 
         {
             text: 'Hold',
         }, 
         {
-            text: 'Breathe Out!',
+            text: 'Breathe Out',
             className: 'container-circle shrink',
         },
         {
@@ -72,12 +73,14 @@ const Breathing = ({ setClicked }) => {
     }
 
     return (
-        <main>
-            <h4>Breathing</h4>
-            <li><li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li></li>
+        <main className='centerColumn'>
+        <ul className='navBar breathingHeader'>
+            <li><h4>Breathing</h4></li>
+            <li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li>
+            </ul>
                 <section className={ className }>
-                    <span className='circle'></span>
-                    <p id='text'> { text } </p>
+                    <span><img src={circle} alt='breathing circle' className='circle'></img></span>
+                    <p id='text' className='text'> { text } </p>
                     <span className='gradient-circle'></span>
                 </section>
                 <Timer 

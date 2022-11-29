@@ -1,7 +1,7 @@
 import './App.css';
 import { Fragment } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import HomeLoggedIn from './components/homeLoggedIn/HomeLoggedIn';
+import Home from './components/home/Home';
 import ProfilePage from './components/profilePage/ProfilePage';
 import Breathing from './components/breathingExercise/Breathing';
 import Journal from './components/journal/Journal';
@@ -13,13 +13,6 @@ function App() {
   return (
     <Fragment>
       <Routes>
-      <Route path='/' element={<HomeLoggedIn />} />
-      <Route path='/homeLoggedIn' element={
-        <ProtectedRoute>
-          <HomeLoggedIn />
-        </ProtectedRoute>
-      }
-      />
       <Route path='/profilePage' element={
         <ProtectedRoute>
           <ProfilePage />
@@ -50,6 +43,7 @@ function App() {
         </ProtectedRoute>
       }
       />
+      <Route path='/' element={<Home />} />
       </Routes>
     </Fragment>
   )
