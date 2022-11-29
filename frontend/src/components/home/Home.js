@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-/* import { useState } from 'react';
-import LogoutButton from '../login/LogoutButton'; */
 import './Home.css';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -15,7 +13,7 @@ const Home = () => {
         <>
         { isAuthenticated && !isLoading && <section className='centerColumn'>
             <section className="navBar homeHeader">
-                <div><img src={logo} alt='home' ></img></div>
+                <div><img className='homeLogo' src={logo} alt='home' ></img></div>
                 <Link to='/profilepage'><button className='profileBtn'>MY PROFILE</button></Link>
             </section>
             <section className='features'>
@@ -35,28 +33,30 @@ const Home = () => {
                     <Link to='/query'><div className='feature queryBtn'></div></Link>
                     <p>Pair Up</p>
                 </div>
-                {/* <div>
-                    <div className='feature profilePageBtn'></div>
-                    <p><Link to='/profilepage'>Profile Page</Link></p>
-                </div> */}
             </section>
         </section>}
         
         { !isAuthenticated && !isLoading &&
             <>
                 <ul className="navBar">
-                    <li><Link to='/'><img src={logo} onClick={Home} alt='home' ></img></Link></li>
+                    <li><Link to='/'><img className='homeLogo' src={logo} onClick={Home} alt='home' ></img></Link></li>
                     <li><LoginButton text={'LOGIN'} name={'login'}/></li>
                 </ul>
 
-                    <img className='welcome' src={SproutWelcome} alt='welcome'></img>
                 <main>
-                    <h1>Meditate with Sprout</h1>
-                    <p className='description'>Lorem Ipsum is simply dummy text of the printing and and over the moon. 
-                    Typesetting industry. Meditate with Sprout. Sign up now - it’s free! 
-                    Just take a minute to sign up now. Lorem Ipsum is simply dummy text of 
-                    the printing and typesetting industry. Come on sign up now!</p>
-                    <div className='loginBtnContainer'><LoginButton text={'SIGN UP'} name={'signup'}/></div>
+                  <section className="introSection">
+                    <img className='welcome' src={SproutWelcome} alt='welcome'></img>
+
+                    <div className='introText'>
+                      <h1 className="introTitle">Meditate with Sprout</h1>
+                      <p className='description'>Lorem Ipsum is simply dummy text of the printing and and over the moon. 
+                      Typesetting industry. Meditate with Sprout. Sign up now - it’s free! 
+                      Just take a minute to sign up now. Lorem Ipsum is simply dummy text of 
+                      the printing and typesetting industry. Come on sign up now!</p>
+                      <div className='loginBtnContainer'><LoginButton text={'SIGN UP'} name={'signup'}/></div>
+                    </div>
+                  </section>
+                    
                   <section className="commentSection">
                       <div className="userComment">
                         <p className="quote comment">"I am rather keen on this specific internet web application website!"</p>

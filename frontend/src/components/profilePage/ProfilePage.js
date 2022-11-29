@@ -1,12 +1,13 @@
 import React from 'react';
 import LogoutButton from '../login/LogoutButton';
+import './ProfilePage.css';
 
 const ProfilePage = () => {
     return (
-        <div>
-        <h1>PROFILE PAGE</h1>
-        <LogoutButton />
-        </div>
+        <section>
+        <h4>My profile</h4>
+        <LogoutButton text={'LOGOUT'} name={'logout'}/>
+        </section>
     )
 }
 

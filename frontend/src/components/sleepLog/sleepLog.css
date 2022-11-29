@@ -5,7 +5,7 @@
 }
 
 .sleepLog {
-  padding-bottom: 100px;
+  padding: 0px 0 100px;
 }
 
 .card {
@@ -13,7 +13,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-self: center;
-  margin: 5px;
+  margin: 5px 0;
 }
 
 .sleepHeader {
@@ -23,7 +23,7 @@
   background-position: 0 -55px;
   height: 100px;
   mask-image: linear-gradient(rgba(0, 0, 0, 1.0) 50%, transparent 100%);
-  padding: 30px 30px 0;
+  padding: 30px 16px 0;
   position: static;
 }
 
@@ -88,21 +88,65 @@ form {
   width: 100%;
 }
 
-/* .notToggled:hover {
-  transform: scale(1.1);
-} */
-
-h4, h3 {
+.sleepLog h4, .sleepLog h3 {
   margin-bottom: 20px;
-}
-
-input, textarea {
-  border-radius: 5px;
-  border: 1px solid #283A0A;
 }
 
 .radioButton {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.errorMessage {
+  color: #FD994B;
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .formSection {
+    width: 500px;
+    gap: 25px;
+  }
+
+  .sleepHeader {
+    height: 200px;
+    background-position: 0 -140px;
+    padding: 30px 32px 0;
+  }
+
+  .logGallery {
+    padding: 0 32px;
+    gap: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .notToggled:hover {
+    transform: scale(1.1);
+  }
+
+  .formSection {
+    width: 500px;
+    gap: 25px;
+  }
+
+  .sleepHeader {
+    height: 200px;
+    background-position: 0 -200px;
+    padding: 30px 142px 0;
+  }
+
+  .logGallery {
+    padding: 0 142px;
+    gap: 25px;
+  }
+
+  .radioButton {
+    transition: all .2s ease-in-out;
+  }
+
+  .radioButton:hover {
+    transform: scale(1.1);
+  }
 }

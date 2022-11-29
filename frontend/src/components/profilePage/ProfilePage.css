@@ -1,0 +1,17 @@
+.logoutBtn {
+  height: 32px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 10px;
+  color: #2E5DA4;
+  border: 1px solid #2E5DA4;
+  border-radius: 4px;
+  background-color: #FDFFF9;
+  font-family: var(--header-font);
+}
+
+

@@ -75,7 +75,7 @@ const Breathing = ({ setClicked }) => {
     return (
         <main className='centerColumn'>
         <ul className='navBar breathingHeader'>
-            <li><h4>Breathing</h4></li>
+            <li><h4 className='breathText'>Breathing</h4></li>
             <li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li>
             </ul>
                 <section className={ className }>

@@ -9,18 +9,16 @@ export const JournalItem = (props) => {
       setShowDelet(prevState => !prevState)
     }
   return (
-    <li >
-    <article  >
-      <section  onClick={showDeleteButtonHandler}>
-        <h2>{journal.date}</h2>
+    <article className='journalLogCard' >
+      <section className='journalLogNav' onClick={showDeleteButtonHandler}>
+        <p>{journal.date}</p>
         {showDelete && <section>
-          <p>{journal.Thoughts}</p>
-          <p>{journal.Emotions}</p>
-        <p>{journal.Reflection}</p>
+          <p>-{journal.Thoughts}</p>
+          <p>-{journal.Emotions}</p>
+        <p>-{journal.Reflection}</p>
         <button  onClick={removeHamdler}>Remove</button>
       </section>}
       </section>
     </article>
-  </li>
   )
 }

@@ -50,7 +50,7 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
             removeCard(entryId, userId);
           }}>REMOVE</button>
         </div>
-        
+
         <p>Hours of sleep: {hours}</p>
         <p>How did I sleep: {rate}</p>
         <p>{comments}</p>

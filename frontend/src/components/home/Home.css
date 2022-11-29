@@ -7,7 +7,7 @@
   padding-right: 16px;
 }
 
-img {
+.homeLogo {
   padding-top: 6px;
 }
 
@@ -17,6 +17,7 @@ img {
     gap: 32px;
     justify-items: center;
     margin-bottom: 88px;
+    color: var(--text-color);
 }
 
 .feature {
@@ -49,11 +50,6 @@ img {
     background-size: cover;
 }
 
-/* .profilePageBtn {
-    background-image: url('https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png');
-    background-size: cover;
-} */
-
 .profileBtn {
     width: 152px;
     height: 32px;
@@ -79,22 +75,7 @@ img {
   flex-wrap: nowrap;
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 1.0) 80%, transparent 100%);
   gap: 10px;
-}
-
-.userComment {
-  flex: 0 0 70%;
-  border: 1px solid var(--primary-color);
-  border-radius: 8px;
-  padding: 9px;
-  margin: 0 0 20px;
-  height: 88px;
-  width: 241px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  gap: 4px;
+  padding-left: 16px;
 }
 
 .quote, .comment {
@@ -107,4 +88,183 @@ img {
 
 .featureDiv > p {
   text-align: center;
+}
+
+@media (min-width: 320px) {
+  .navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 24px 16px 20px 16px ;
+    position: fixed;
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 32px;
+    color: var(--text-color);
+    font-family: var(--header-font);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .introText{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .welcome {
+    width: 375px;
+    height: 348px;
+    margin-top: 64px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .features {
+    padding-top: 88px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    justify-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    justify-items: center;
+  }
+
+  .navBar {
+    position: fixed;
+    background-color: transparent;
+    width: 100%;
+    padding: 24px 56px 0;
+  }
+
+  .introSection {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .welcome {
+    order: 2;
+    width: 50%;
+    height: auto;
+    margin: 0;
+  }
+
+  .introText {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 124px 30px 0 56px;
+  }
+
+  .commentSection {
+    justify-content: space-between;
+    padding: 0 56px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .footer__container {
+    padding-top: 32px;
+    margin: 20px 56px;
+  }
+
+  .userComment {
+    max-width: 353px;
+  }
+
+  .description {
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .introTitle {
+    text-align: left;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .features {
+    padding-top: 142px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 104px;
+    justify-items: center;
+  }
+
+  h1 {
+    font-size: 32px;
+    color: var(--text-color);
+    font-family: var(--header-font);
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 4px;
+  }
+
+  .introSection {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    width: 100%;
+  }
+
+  .welcome {
+    order: 2;
+    width: 50%;
+    height: auto;
+    margin: 0;
+  }
+
+  .introText {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 216px 47px 0 142px;
+  }
+
+  .navBar {
+    position: fixed;
+    background-color: transparent;
+    width: 100%;
+    padding: 24px 142px 0;
+  }
+
+  .description {
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .commentSection {
+    justify-content: space-between;
+    mask-image: none;
+    padding: 0 142px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .footer__container {
+    padding-top: 32px;
+    margin: 80px 142px;
+  }
+
+  .userComment {
+    max-width: 353px;
+  }
 }

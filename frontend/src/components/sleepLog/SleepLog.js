@@ -2,14 +2,13 @@ import './sleepLog.css';
 import { useState, useEffect } from 'react';
 import SleepLogForm from './SleepLogForm';
 import SleepLogGallery from './SleepLogGallery';
-import BackButton from '../BackButton';
 import { useAuth0 } from '@auth0/auth0-react';
 import closeButton from '../../assets/images/close_icon.svg';
 import { Link } from 'react-router-dom';
 
 const url = 'http://localhost:8080';
 
-const SleepLog = ({ setClicked }) => {
+const SleepLog = () => {
   const [sleepLog, setSleepLog] = useState(null);
   const { user } = useAuth0();
   const userId = user.sub.replace('auth0|', '');
@@ -29,7 +28,7 @@ const SleepLog = ({ setClicked }) => {
     <section className="centerColumn sleepLog">
       <ul className="navBar sleepHeader">
         <li><p>Sleep Log</p></li>
-        <li><li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li></li>
+        <li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li>
       </ul>
 
       <SleepLogForm sleepLog={sleepLog} setSleepLog={setSleepLog} />

@@ -12,7 +12,9 @@ export const JournalList = (props) => {
   }
  
   return (
-        <ul>
+    <>
+    <h3 className='p__journals'>Your previous journals:</h3>
+        <div className='Journal__gallary'>
             {props.items.map((journal, index)=>(
                <JournalItem
                  key={index}
@@ -20,6 +22,7 @@ export const JournalList = (props) => {
                  onRemove={removeHandler}
                  />
             ))}
-        </ul>
+        </div>
+        </>
   )
 }

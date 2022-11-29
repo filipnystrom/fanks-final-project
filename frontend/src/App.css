@@ -15,7 +15,7 @@
   --body-font: 'Karla', sans-serif;
   --text-color: #283A0A;
   --navbar-colo: #E6F4DA;
-  --main-background-colorr: #FDFFF9;
+  --main-background-color: #FDFFF9;
 }
 
 body {
@@ -77,24 +77,6 @@ li a {
   margin-bottom: 32px;
 }
 
-.navBar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 24px 16px 20px 16px ;
-  position: fixed;
-  width: 100%;
-}
-
-h1 {
-  font-size: 32px;
-  color: var(--text-color);
-  font-family: var(--header-font);
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 4px;
-}
-
 .description {
   font-family: var(--body-font);
   color: var(--text-color);
@@ -104,7 +86,23 @@ h1 {
   margin-top: 4px;
 }
 
-main, footer {
+.userComment {
+  flex: 0 0 70%;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 9px;
+  margin: 0 0 20px;
+  height: 88px;
+  width: 241px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 4px;
+}
+
+footer {
   padding: 0 5%;
 }
 
@@ -131,26 +129,12 @@ main, footer {
   color: var(--primary-color);
 }
 
-@media (min-width: 320px) {
-  .welcome {
-    width: 375px;
-    height: 348px;
-    margin-top: 64px;
-    align-items: center;
-  }
+input, textarea, label, p {
+  font-family: var(--body-font);
+  color: var(--text-color);
 }
 
-@media (min-width: 768px) {
-  .welcome {
-    width: 375px;
-    height: 348px;
-    margin-top: 64px;
-    align-items: center;
-  }
-}
-
-@media (min-width: 1024px) {
-  .breathingHeader {
-    padding: 24px 142px;
-  }
+input, textarea {
+  border-radius: 5px;
+  border: 1px solid var(--text-color);
 }

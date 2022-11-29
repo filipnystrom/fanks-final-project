@@ -3,7 +3,7 @@
   background-color: var(--main-background);
 }
 
-h4 {
+.breathText {
   color: var(--text-color);
   font-family: var(--body-font);
   font-weight: 400;

@@ -25,27 +25,27 @@ export const JournalForm = (props) => {
 
     }
 
-
-
-
     return (
+        <section >
         <form onSubmit={saveHndler}>
-            <article>
+            <article className='formControl'>
                 <aside>
-                    <label>What am I grateful for today?:</label>
-                    <input type="text" ref={thoughtRef} />
+                    <label className='lable'>What am I grateful for today?</label>
+                    <input className='input' type="text" ref={thoughtRef} />
                 </aside>
                 <aside>
-                    <label>What am I looking forward to for
+                    <label className='lable'>What am I looking forward to for
                         tomorrow?</label>
-                    <input type="text" ref={emotionRef} />
+                    <input className='input' type="text" ref={emotionRef} />
                 </aside>
                 <aside>
-                    <label>5 words to summarize about today::</label>
-                    <input type="text" ref={reflectionRef} />
+                    <label className='lable'>Five words to summarize about today:</label>
+                    <input className='input' type="text" ref={reflectionRef} />
                 </aside>
-                <button>save</button>
             </article>
+            <button className="saveBtn" >SAVE</button>
         </form>
+        </section>
+        
     )
 }

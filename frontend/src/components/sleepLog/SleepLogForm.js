@@ -157,7 +157,7 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
 
         <button type="submit" className="loginBtn">SAVE</button>
       </form>
-      {(wrongInput === true) && <h4 className="errorMessage">Please fill in your log to submit!</h4>}
+      {(wrongInput === true) && <h3 className="errorMessage">Please fill in your log to submit!</h3>}
     </section>
   )
 }
