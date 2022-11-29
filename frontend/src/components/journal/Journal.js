@@ -65,9 +65,9 @@ const Journal = ({ setClicked }) => {
 
   return (
     <section className="centerColumn journalLog">
-    <ul className="navBar journal__Header">
+   <ul className="navBar journalHeader">
         <li><p>Daily Journal</p></li>
-        <div><Link to='/'><img src={closeButton} alt='home' className="cross"></img></Link></div>
+        <li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li>
       </ul>
       <img src={sproutPen} className='journal__logo'></img>
       <JournalForm onAddJournalHandler={addJournalsHandler} />
