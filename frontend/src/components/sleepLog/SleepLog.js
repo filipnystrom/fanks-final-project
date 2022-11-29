@@ -34,7 +34,6 @@ const SleepLog = ({ setClicked }) => {
 
       <SleepLogForm sleepLog={sleepLog} setSleepLog={setSleepLog} />
       <SleepLogGallery sleepLog={sleepLog} setSleepLog={setSleepLog} />
-      <BackButton setClicked={setClicked} />
     </section>
   )
 

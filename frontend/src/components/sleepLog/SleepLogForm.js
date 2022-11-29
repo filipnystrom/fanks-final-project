@@ -9,13 +9,16 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
   const userId = user.sub.replace('auth0|', '')
   const [wrongInput, setWrongInput] = useState(false);
   const [newLog, setNewLog] = useState({
-    date: '',
     rate: '',
     hours: '',
     comments: '',
     userId: '',
     entryId: '',
   })
+
+  const today = new Date();
+  const currentDate = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`;
+
 
   const addNewUserSleepLog = () => {
     if (sleepLog) return;
@@ -41,7 +44,6 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
     if (newLog.date === '' || newLog.hours === '' || newLog.rate === '') {
       setWrongInput(true);
       return setNewLog({
-        date: '',
         rate: '',
         hours: '',
         comments: '',
@@ -51,7 +53,7 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
     }
 
     const log = {
-      date: newLog.date,
+      date: currentDate,
       rate: newLog.rate,
       hours: newLog.hours,
       comments: newLog.comments,
@@ -77,7 +79,6 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
 
     setWrongInput(false);
     return setNewLog({
-      date: '',
       rate: '',
       hours: '',
       comments: '',
@@ -95,51 +96,7 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
   return (
     <section className="formSection card">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="date">Date:</label>
-        <input
-          type="text"
-          name="date"
-          value={newLog.date}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="rate">How did you sleep?</label>
-        <div className="radio">
-          <label>
-            <input
-              type="radio"
-              name="rate"
-              value='Bad!'
-              checked={newLog.rate === 'Bad!'}
-              onChange={handleChange}
-            />
-            Bad!
-          </label>
-        
-          <label>
-            <input
-              type="radio"
-              name="rate"
-              value='Like Always, ish'
-              checked={newLog.rate === 'Like Always, ish'}
-              onChange={handleChange}
-            />
-            Like always, ish?
-          </label>
-        
-          <label>
-            <input
-            type="radio"
-            name="rate"
-            value='Niiiice!'
-            checked={newLog.rate === 'Niiiice!'}
-            onChange={handleChange}
-          />
-            Niiiiice!
-          </label>
-        </div>
-
-        <label htmlFor="hours">How many hours did you sleep?</label>
+      <label htmlFor="hours">Number of hours I slept tonight:</label>
         <input
           type="number"
           name="hours"
@@ -147,7 +104,43 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
           onChange={handleChange}
         />
 
-        <label htmlFor="comments">Do you have any further reflections on your sleep?</label>
+        <label htmlFor="rate">How would I rate my sleep?</label>
+        <div className="radio">
+          <label>
+            <input
+              type="radio"
+              name="rate"
+              value='Terrible'
+              checked={newLog.rate === 'Terrible'}
+              onChange={handleChange}
+            />
+            Terrible
+          </label>
+        
+          <label>
+            <input
+              type="radio"
+              name="rate"
+              value='Not bad'
+              checked={newLog.rate === 'Not bad'}
+              onChange={handleChange}
+            />
+            Not bad
+          </label>
+        
+          <label>
+            <input
+            type="radio"
+            name="rate"
+            value='Great!'
+            checked={newLog.rate === 'Great!'}
+            onChange={handleChange}
+          />
+            Great!
+          </label>
+        </div>
+
+        <label htmlFor="comments">Things I would like to continue doing to get a good nights sleep:</label>
         <textarea
           type="textarea"
           rows="5"

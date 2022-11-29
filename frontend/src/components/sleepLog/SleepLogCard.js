@@ -7,7 +7,7 @@ const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => 
   const [isToggled, setIsToggled] = useState(false);
   const { user } = useAuth0();
   const userId = user.sub.replace('auth0|', '');
-
+  
   const toggleCard = () => {
     if (!isToggled) {
       setIsToggled(true);
