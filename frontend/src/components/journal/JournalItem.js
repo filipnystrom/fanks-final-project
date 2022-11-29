@@ -10,13 +10,13 @@ export const JournalItem = (props) => {
     }
   return (
     <li >
-    <article  >
+    <article className='items__container' >
       <section  onClick={showDeleteButtonHandler}>
-        <h2>{journal.date}</h2>
+        <h3>{journal.date}</h3>
         {showDelete && <section>
-          <p>{journal.Thoughts}</p>
-          <p>{journal.Emotions}</p>
-        <p>{journal.Reflection}</p>
+          <p>-{journal.Thoughts}</p>
+          <p>-{journal.Emotions}</p>
+        <p>-{journal.Reflection}</p>
         <button  onClick={removeHamdler}>Remove</button>
       </section>}
       </section>

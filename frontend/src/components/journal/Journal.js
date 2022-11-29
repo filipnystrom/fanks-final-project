@@ -64,11 +64,11 @@ const Journal = ({ setClicked }) => {
   };
 
   return (
-    <>
-      <header className="journal__header" >
-        <h4 className="headername">Daily Journal</h4>
-        <Link to='/'><img src={closeButton} alt='home' ></img></Link>
-      </header>
+    <section className="centerColumn journalLog">
+    <ul className="navBar journalHeader">
+        <li><p>Daily Journal</p></li>
+        <li><li><Link to='/'><img src={closeButton} alt='home' className="cross"></img></Link></li></li>
+      </ul>
       <img src={sproutPen} className='journal__logo'></img>
       <JournalForm onAddJournalHandler={addJournalsHandler} />
       <JournalList
@@ -76,9 +76,8 @@ const Journal = ({ setClicked }) => {
         onRemoveJournal={removeJournalHandler}
 
       />
-      <BackButton setClicked={setClicked} />
-    </>
-  );
+      </section>
+  )
 };
 
 export default Journal;

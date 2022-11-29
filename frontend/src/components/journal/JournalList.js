@@ -12,6 +12,8 @@ export const JournalList = (props) => {
   }
  
   return (
+    <>
+    <h3 className='p__journals'>Your previous journals:</h3>
         <ul>
             {props.items.map((journal, index)=>(
                <JournalItem
@@ -21,5 +23,6 @@ export const JournalList = (props) => {
                  />
             ))}
         </ul>
+        </>
   )
 }
