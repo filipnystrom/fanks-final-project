@@ -12,7 +12,7 @@ import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
 function App() {
   return (
     <Fragment>
-      <Routes location>
+      <Routes>
       <Route path='/profilePage' element={
         <ProtectedRoute>
           <ProfilePage />
