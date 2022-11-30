@@ -61,18 +61,26 @@
 .queryGreat {
     color: var(--text-color);
     text-align: center;
+    margin-top: 40px;
+    font-size: 40px;
 }
 
 @media (min-width: 320px) {
     .queryImg {
-        margin-top: auto;
+        width: 300px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 245px;
     }
     .querySection {
         font-size: 16px;
         font-family: var(--body-font);
-        background-color: #FDFFF9;
         padding-left: 16px;
         padding-right: 16px;
+    }
+    .queryQuestion {
+        text-align: center;
     }
 }
 
@@ -89,10 +97,20 @@
         padding-right: 142px;
     }
     .queryImg {
-        margin-top: auto;
+        width: 400px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 670px;
     }
     .startBtnQuery {
         width: 90px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .queryQuestion {
+        text-align: center;
     }
 }
 
@@ -103,10 +121,20 @@
     }
 
     .queryImg {
-        width: 880px;
+        width: 400px;
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 235px;
+    }
+    .startBtnQuery {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90px;
+    }
+    .queryQuestion {
+        text-align: center;
     }
 }
 
