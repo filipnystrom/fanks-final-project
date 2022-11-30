@@ -48,21 +48,17 @@ top: 105.5px;
   {display: block;} 
 
   @media (min-width: 320px) {
-    .profilePage {
-      background-color: var(--main-background);
-      margin-right: 16px;
-      margin-left: 16px;
-    }
     .logoutBtn {
       width: 300px;
       align-items: center;
+      margin-left:16px ;
+      margin-right:16px ;
     }
     .profile-img{
      padding-bottom: 50px;
      padding-top: 50px;
-     
-    
-    
+     margin
+  
     }
     }
     .profileHeader {

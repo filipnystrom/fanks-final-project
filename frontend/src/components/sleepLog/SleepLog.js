@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import closeButton from '../../assets/images/close_icon.svg';
 import { Link } from 'react-router-dom';
 
-const url = 'http://api.growwithsprout.site';
+const url = 'https://api.growwithsprout.site';
 
 const SleepLog = () => {
   const [sleepLog, setSleepLog] = useState(null);

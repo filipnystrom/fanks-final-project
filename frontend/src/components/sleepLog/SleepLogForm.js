@@ -5,7 +5,7 @@ import sleepOk from '../../assets/images/sleep_okey.svg';
 import sleepGreat from '../../assets/images/sleep_great.svg';
 const { v4: uuidv4 } = require("uuid");
 
-const url = 'http://localhost:8080';
+const url = 'https://api.growwithsprout.site';
 
 const SleepLogForm = ({ sleepLog, setSleepLog }) => {
   const { user } = useAuth0();

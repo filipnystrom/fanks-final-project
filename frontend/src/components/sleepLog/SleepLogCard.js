@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
-const url = 'http://localhost:8080';
+const url = 'https://api.growwithsprout.site';
 
 const SleepLogCard = ({ date, hours, rate, comments, entryId, setSleepLog }) => {
   const [isToggled, setIsToggled] = useState(false);

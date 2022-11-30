@@ -8,7 +8,7 @@ import closeButton from '../../assets/images/close_icon.svg';
 import { Link } from 'react-router-dom';
 const { v4: uuidv4 } = require("uuid");
 
-const url = "http://api.growwithsprout.site/journals/";
+const url = "https://api.growwithsprout.site/journals/";
 
 const Journal = () => {
   const { user } = useAuth0();
