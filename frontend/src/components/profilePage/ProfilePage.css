@@ -11,6 +11,7 @@
   color: var(--text-color);
 }
 
+
 .logoutBtn {
   height: 32px;
   padding-top: 10px;
@@ -57,7 +58,7 @@ top: 105.5px;
     .profile-img{
      padding-bottom: 50px;
      padding-top: 50px;
-     margin
+     margin-right: 16px;
   
     }
     }
@@ -65,6 +66,7 @@ top: 105.5px;
       background-color: var(--main-background);
 
     }
+  
  
 
   @media (min-width: 768px){
