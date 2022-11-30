@@ -1,3 +1,16 @@
+.profilePage {
+  background-color: var(--main-background-color);
+  border: 1px solid black;
+  height: 100vh;
+}
+
+.profileText {
+  font-family: var( --body-font );
+  font-weight: 400px;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
 .logoutBtn {
   height: 32px;
   padding-top: 10px;
@@ -15,3 +28,70 @@
 }
 
 
+.profile-img{
+  border-radius: 50%;
+
+}
+.btnback{
+  position: absolute;
+width: 24px;
+height: 24.11px;
+left: 280px;
+top: 105.5px;
+}
+ 
+.profile-page{
+      margin: 50px;    
+  }
+      
+.profileH4
+  {display: block;} 
+
+  @media (min-width: 320px) {
+    .profilePage {
+      background-color: var(--main-background);
+      margin-right: 16px;
+      margin-left: 16px;
+    }
+    .logoutBtn {
+      width: 300px;
+      align-items: center;
+    }
+    .profile-img{
+     padding-bottom: 50px;
+     padding-top: 50px;
+     
+    
+    
+    }
+    }
+    .profileHeader {
+      background-color: var(--main-background);
+
+    }
+ 
+
+  @media (min-width: 768px){
+    .profileHeader {
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+    .profileInform{
+      padding-top: 30px;
+      padding-bottom: 30px;
+      
+    }
+  }
+
+@media (min-width: 1024px) {
+  .profileHeader {
+ width: 100%;
+ margin-top: 10px;
+  
+  }
+  .profiledata{
+   padding-top: 100px;
+   padding-left: 550px;
+  }
+  
+}

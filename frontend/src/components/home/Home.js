@@ -37,7 +37,7 @@ const Home = () => {
 
       {!isAuthenticated && !isLoading &&
         <>
-          <ul className="navBar">
+          <ul className="navBar homeHeader">
             <li><Link to='/'><img className='homeLogo' src={logo} onClick={Home} alt='home' ></img></Link></li>
             <li><LoginButton text={'LOGIN'} name={'login'} /></li>
           </ul>

@@ -4,9 +4,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 export const JournalList = (props) => {
-  const enteredId = props.entryId
-  const { user } = useAuth0();
-  const id = user.sub.substring(6);
+  // const enteredId = props.entryId
+  // const { user } = useAuth0();
+  // const id = user?.sub.substring(6);
   const removeHandler = enteredId =>{
     props.onRemoveJournal(enteredId)
   }
