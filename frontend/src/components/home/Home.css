@@ -240,7 +240,7 @@
   }
 
   .navBar {
-    position: fixed;
+    position: absolute;
     background-color: transparent;
     width: 100%;
     padding: 24px 142px 0;

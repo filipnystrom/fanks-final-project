@@ -1,4 +1,3 @@
-
 .centerColumn {
   display: flex;
   flex-direction: column;
@@ -14,9 +13,15 @@
 }
 
 .journalLog {
-  padding-bottom: 100%;
+  padding-bottom: 100px;
 }
 
+.journalNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+}
 
 .journal__logo {
   margin-top: -55px;
@@ -26,7 +31,7 @@
   margin-bottom: -20px;
 } 
 
-.input{
+.input {
   background-color: white;
   height: 77.5px;
   width: 309px;
@@ -39,7 +44,7 @@
   border: 1px solid #283A0A
 }
 
-.lable{
+.lable {
   width: 213px;
   height: 16px;
   margin-left: 20px;
@@ -73,9 +78,8 @@
   color: var(--text-color);
   margin-top: 70px;
   margin-bottom: 25px;
-
-  
 }
+
 .journal__gallery {
   display: flex;
   flex-direction: column;
@@ -84,8 +88,8 @@
   padding: 0 20px;
   gap: 10px;
 }
+
 .journal__Card {
-  transition: all .2s ease-in-out;
   border: 1px solid #FD994B;
   width: 100%;
   border-radius: 7px;
@@ -105,32 +109,9 @@
 .journal__Card:hover {
   cursor: pointer;
 }
+
 .journal__Card section {
   width: 100%;
-}
-.journalLogNav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-.remove__journal{
-  height: 32px;
-  line-height: 16px;
-  background-color: #FD994B;
-  border-radius: 4px;
-  border: none;
-  font-weight: 700;
-  font-size: 16px;
-  padding-top: 10px;
-  padding-bottom: 8px;
-  padding-left: 16px;
-  padding-right: 16px;
-  font-family: var(--header-font);
-  color: var(--text-color);
-   margin-top: -20px;
-   margin-left: 195px;
- 
 }
 
 .journal__info {
@@ -145,7 +126,6 @@
 
 .journal__date {
   font-weight: bold;
-  width: 100%;
 }
 
 @media (min-width: 768px){
@@ -167,25 +147,21 @@
     margin-top: -40px;
     margin-right: -17px;
   }
-  .input{
+  .input {
     height: 82px;
     width: 440px;
     padding: 2px;
   }
-  .saveBtn{
+  .saveBtn {
     width: 440px;
   }
-  .p__journals{
+  .p__journals {
     margin-right: 500px;
   }
 
-  .journal__Card{
+  .journal__Card {
     width: 705px;
   }
-  .remove__journal{
-    margin-left: 560px;
-  }
-
 }
 
 @media (min-width: 1024px) {
@@ -215,9 +191,6 @@
   .journal__Card{
     width: 1000px;
   }
-  .remove__journal{
-    margin-left: 860px;
-  }
 
   .hoverEffect {
     transition: all .2s ease-in-out;
@@ -226,5 +199,4 @@
   .hoverEffect:hover {
     transform: scale(1.1);
   }
-
 }

@@ -8,34 +8,22 @@ export const JournalItem = (props) => {
   const showDeleteButtonHandler = () => {
     setShowDelet((prevState) => !prevState);
   };
-  // return (
-  //     <section className="journal__Card" onClick={showDeleteButtonHandler}>
-  //       <p className="journal__date">{journal.date}</p>
-  //       {showDelete && (
-  //         <section >
-  //           <button className="remove__journal" onClick={removeHamdler}>
-  //             REMOVE
-  //           </button>
-  //           <p className="journal__info">{journal.Thoughts}</p>
-  //           <p className="journal__info">{journal.Emotions}</p>
-  //           <p className="journal__info">{journal.Reflection}</p>
-  //         </section>
-  //       )}
-  //     </section>
-  // );
 
     if (showDelete) {
       return (
         <section className="journal__Card" onClick={showDeleteButtonHandler}>
-          <p className="journal__date">{journal.date}</p>
-            <section >
-              <button className="remove__journal" onClick={removeHamdler}>
-                REMOVE
-              </button>
-              <p className="journal__info">{journal.Thoughts}</p>
-              <p className="journal__info">{journal.Emotions}</p>
-              <p className="journal__info">{journal.Reflection}</p>
-            </section>
+          <section className="journalNav">
+            <p className="journal__date">{journal.date}</p>
+            <button className="loginBtn" onClick={removeHamdler}>
+              REMOVE
+            </button>
+          </section>
+
+          <section>
+            <p className="journal__info">What I am grateful for: {journal.Thoughts}</p>
+            <p className="journal__info">What I am looking forward to: {journal.Emotions}</p>
+            <p className="journal__info">Summarizing words: {journal.Reflection}</p>
+          </section>
         </section>
       )
     }

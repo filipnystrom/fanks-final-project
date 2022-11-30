@@ -5,7 +5,7 @@ import closeButton from '../../assets/images/close_icon.svg';
 import { Link } from "react-router-dom";
 import circle from '../../assets/images/breathing_circle.svg';
 
-const Breathing = ({ setClicked }) => {
+const Breathing = () => {
     const RESET_ANIMATE_TEXT = 'Ready?';
     const [text, setText] = useState(RESET_ANIMATE_TEXT);
     const [className, setClassName] = useState('container-circle');

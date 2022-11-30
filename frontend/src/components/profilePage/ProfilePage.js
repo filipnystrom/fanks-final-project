@@ -1,16 +1,14 @@
 import React from 'react';
 import './ProfilePage.css';
-import {useEffect,useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-
 import { Link } from "react-router-dom";
 import LogoutButton from '../login/LogoutButton';
 import closeButton from '../../assets/images/close_icon.svg';
 
 
-const ProfilePage = ({ setClicked }) => {
+const ProfilePage = () => {
   const { user } = useAuth0();
-  const { logout } = useAuth0();
+  // const { logout } = useAuth0();
   
 
   return (

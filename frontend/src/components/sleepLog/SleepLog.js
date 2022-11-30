@@ -12,17 +12,16 @@ const SleepLog = () => {
   const [sleepLog, setSleepLog] = useState(null);
   const { user } = useAuth0();
   const userId = user.sub.replace('auth0|', '');
-
-  const getSleepLogs = () => {
-
-    fetch(`${url}/sleeplogs`)
-      .then((res) => res.json())
-      .then((data) => setSleepLog(data.find(el => el.userId === userId)))
-  }
-
+  
   useEffect(() => {
+    const getSleepLogs = () => {
+  
+      fetch(`${url}/sleeplogs`)
+        .then((res) => res.json())
+        .then((data) => setSleepLog(data.find(el => el.userId === userId)))
+    }
     return getSleepLogs();
-  }, []);
+  }, [userId]);
 
   return (
     <section className="centerColumn sleepLog">

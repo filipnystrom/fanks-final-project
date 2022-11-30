@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 
 export const JournalForm = (props) => {
+    const [wrongInput, setWrongInput] = useState(false);
     const thoughtRef = useRef();
     const emotionRef = useRef();
     const reflectionRef = useRef();
@@ -9,6 +10,7 @@ export const JournalForm = (props) => {
     const saveHndler = (event) => {
         event.preventDefault();
         if (!thoughtRef.current.value) {
+            setWrongInput(true);
             return;
         }
 
@@ -22,28 +24,29 @@ export const JournalForm = (props) => {
         thoughtRef.current.value = '';
         emotionRef.current.value = '';
         reflectionRef.current.value = '';
-
+        setWrongInput(false);
     }
 
     return (
         <section >
         <form onSubmit={saveHndler}>
             <article className='formControl'>
-                <aside>
-                    <label className='lable'>What am I grateful for today?</label>
-                    <input className='input' type="text" ref={thoughtRef} />
-                </aside>
-                <aside>
-                    <label className='lable'>What am I looking forward to for
+                <section>
+                    <label className='lable' htmlFor="thoughts">What am I grateful for today?</label>
+                    <input className='input' type="textarea" rows="5" name="thoughts" ref={thoughtRef} />
+                </section>
+                <section>
+                    <label className='lable' htmlFor="emotion">What am I looking forward to for
                         tomorrow?</label>
-                    <input className='input' type="text" ref={emotionRef} />
-                </aside>
-                <aside>
-                    <label className='lable'>Five words to summarize about today:</label>
-                    <input className='input' type="text" ref={reflectionRef} />
-                </aside>
+                    <input className='input' type="textarea" rows="5" name="emotion" ref={emotionRef} />
+                </section>
+                <section>
+                    <label className='lable' htmlFor="reflection">Five words to summarize about today:</label>
+                    <input className='input' type="textarea" rows="5" name="reflection" ref={reflectionRef} />
+                </section>
             </article>
             <button className="saveBtn" >SAVE</button>
+        {(wrongInput === true) && <h3 className="errorMessage">Please fill in your journal to save!</h3>}
         </form>
         </section>
         
