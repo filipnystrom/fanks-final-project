@@ -33,16 +33,16 @@ export const JournalForm = (props) => {
             <article className='formControl'>
                 <section>
                     <label className='lable' htmlFor="thoughts">What am I grateful for today?</label>
-                    <input className='input' type="textarea" rows="5" name="thoughts" ref={thoughtRef} />
+                    <textarea className='input' type="textarea" rows="5" name="thoughts" ref={thoughtRef} />
                 </section>
                 <section>
                     <label className='lable' htmlFor="emotion">What am I looking forward to for
                         tomorrow?</label>
-                    <input className='input' type="textarea" rows="5" name="emotion" ref={emotionRef} />
+                    <textarea className='input' type="textarea" rows="5" name="emotion" ref={emotionRef} />
                 </section>
                 <section>
                     <label className='lable' htmlFor="reflection">Five words to summarize about today:</label>
-                    <input className='input' type="textarea" rows="5" name="reflection" ref={reflectionRef} />
+                    <textarea className='input' type="textarea" rows="5" name="reflection" ref={reflectionRef} />
                 </section>
             </article>
             <button className="saveBtn" >SAVE</button>
