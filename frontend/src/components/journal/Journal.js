@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { JournalForm } from "./JournalForm";
 import { JournalList } from "./JournalList";
 import { useAuth0 } from "@auth0/auth0-react";
-import BackButton from "../BackButton";
 import './Journal.css';
 import sproutPen from '../../assets/images/sprout_withpencil.svg';
 import closeButton from '../../assets/images/close_icon.svg';
@@ -11,7 +10,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const url = "http://localhost:8080/journals/";
 
-const Journal = ({ setClicked }) => {
+const Journal = () => {
   const { user } = useAuth0();
   const id = user?.sub.substring(6);
   const [journal, setJournal] = useState([]);
@@ -69,7 +68,7 @@ const Journal = ({ setClicked }) => {
         <li><p>Daily Journal</p></li>
         <li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li>
       </ul>
-      <img src={sproutPen} className='journal__logo'></img>
+      <img src={sproutPen} alt="Logo with pen" className='journal__logo'></img>
       <JournalForm onAddJournalHandler={addJournalsHandler} />
       <JournalList
         items={journal}

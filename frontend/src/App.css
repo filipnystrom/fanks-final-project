@@ -18,6 +18,10 @@
   --main-background-color: #FDFFF9;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 body {
   background-color: var(--main-background-color);
   width: 100%;
@@ -137,4 +141,14 @@ input, textarea, label, p {
 input, textarea {
   border-radius: 5px;
   border: 1px solid var(--text-color);
+}
+
+@media (min-width: 1024px) {
+  button {
+    transition: all .2s ease-in-out;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+  }
 }

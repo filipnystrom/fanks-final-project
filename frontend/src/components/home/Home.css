@@ -267,4 +267,12 @@
   .userComment {
     max-width: 353px;
   }
+
+  .featureDiv {
+    transition: all .2s ease-in-out;
+  }
+
+  .featureDiv:hover {
+    transform: scale(1.1);
+  }
 }

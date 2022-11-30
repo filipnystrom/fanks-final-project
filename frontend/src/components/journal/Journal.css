@@ -68,7 +68,7 @@
   width: 309px;
 }
 
-.p__journals{
+.p__journals {
   margin-right: 130px;
   color: var(--text-color);
   margin-top: 70px;
@@ -84,7 +84,7 @@
   padding: 0 20px;
   gap: 10px;
 }
-.journal__Card{
+.journal__Card {
   transition: all .2s ease-in-out;
   border: 1px solid #FD994B;
   width: 100%;
@@ -105,7 +105,7 @@
 .journal__Card:hover {
   cursor: pointer;
 }
-.journal__Card section{
+.journal__Card section {
   width: 100%;
 }
 .journalLogNav {
@@ -133,7 +133,7 @@
  
 }
 
-.journal__info{
+.journal__info {
   text-align: left;
   margin-right: 100px;
   display: block;
@@ -143,7 +143,7 @@
   margin-inline-end: 0px;
 }
 
-.journal__date{
+.journal__date {
   font-weight: bold;
   width: 100%;
 }
@@ -177,11 +177,8 @@
   }
   .p__journals{
     margin-right: 500px;
+  }
 
-  }
-  .journal__Card:hover {
-    transform: scale(1.1);
-  }
   .journal__Card{
     width: 705px;
   }
@@ -220,6 +217,14 @@
   }
   .remove__journal{
     margin-left: 860px;
+  }
+
+  .hoverEffect {
+    transition: all .2s ease-in-out;
+  }
+
+  .hoverEffect:hover {
+    transform: scale(1.1);
   }
 
 }

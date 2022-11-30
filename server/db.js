@@ -2,7 +2,6 @@ const { MongoClient } = require('mongodb');
 const dotenv = require('dotenv');
 dotenv.config();
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.fy2mabq.mongodb.net/fanksFinalProject?retryWrites=true&w=majority`;
-// const dbName = 'fanksFinalProject';
 
 async function connectToJournals() {
   const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });

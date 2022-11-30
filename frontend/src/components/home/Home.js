@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -49,7 +48,7 @@ const Home = () => {
 
               <div className='introText'>
                 <h1 className="introTitle">Grow with Sprout</h1>
-                <p className='description'>Sprout is your best friend in tending to your inner garden and striving towards inner growth! Join in on the journey to become free from stress and letting your flowers blossom. And don't worry, growing is both fun and easy, if you have the right company.</p>
+                <p className='description'>Sprout is your best friend in tending to your inner garden and striving towards personal growth! Join in on the journey to become free from stress and letting your flowers blossom. And don't worry, growing is both fun and easy, if you have the right company.</p>
                 <div className='loginBtnContainer'><LoginButton text={'SIGN UP'} name={'signup'} /></div>
               </div>
             </section>
@@ -71,7 +70,7 @@ const Home = () => {
           </main>
           <footer className='footer__container'>
             <p className='footer'> © 2022 Sprout</p>
-            <p className='footer' >This web app is an open source by FANKS. Visit our <a href="https://github.com/filipnystrom/fanks-final-project" target="_blank" className='github'>GitHub.</a></p>
+            <p className='footer' >This web app is an open source by FANKS. Visit our <a href="https://github.com/filipnystrom/fanks-final-project" target="_blank" rel="noreferrer" className='github'>GitHub.</a></p>
           </footer>
         </>
       }
