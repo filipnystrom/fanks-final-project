@@ -65,10 +65,10 @@ const Query = ({ setClicked }) => {
                     <Countdown date={Date.now() + 3000} renderer={renderer} />
                 </div> :
                 <section className='stepSection'>
-                    <p className='step'><span>Step 1:</span> Find a buddy to do this activity with</p>
-                    <p className='step'><span>Step 2:</span> Get your pair to ask the provided question</p>
-                    <p className='step'><span>Step 3:</span> You will get a minute to answer, answer whatever comes to your mind</p>
-                    <p className='step'><span>Step 4:</span> Switch places and repeat. Ready?</p>
+                    <p className='step'><span>Step 1:</span> Find a friend, and sit down in a calm and safe space. Take a few breaths together to settle in.</p>
+                    <p className='step'><span>Step 2:</span> One of you starts by asking the question on the screen. Ask the question repeatedly, or leave space for longer answers..</p>
+                    <p className='step'><span>Step 3:</span> You will get a minute to answer. Try to feel into your body and let out whatever comes to your mind.</p>
+                    <p className='step'><span>Step 4:</span> When you're done, switch positions and repeat. Remember to give each other space, and listen attentively.</p>
                     <button className='startBtnQuery' onClick={handleClick}>START</button>
                 </section>}
             </section>
