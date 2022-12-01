@@ -10,7 +10,7 @@ const Breathing = () => {
     const [text, setText] = useState(RESET_ANIMATE_TEXT);
     const [className, setClassName] = useState('container-circle');
     const [isRunning, setIsRunning] = useState(false);
-    let [animateDuration, setAnimateDuration] = useState(0);
+    let animateDuration = 0;
 
     const animationStates = [
         {
@@ -41,6 +41,7 @@ const Breathing = () => {
             let interval = setInterval(breathing, breatheTime);
             return () => clearInterval(interval);
         }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isRunning]);
 
     const breathing = () => {

@@ -96,7 +96,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 24px 16px 20px 16px ;
-    position: static;
+    position: absolute;
     width: 100%;
   }
   
@@ -140,7 +140,7 @@
   }
 
   .navBar {
-    position: static;
+    position: absolute;
     background-color: transparent;
     width: 100%;
     padding: 24px 56px 0;

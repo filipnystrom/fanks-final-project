@@ -17,14 +17,16 @@ const ProfilePage = () => {
             <li><h4 className='profileText'>My Profile</h4></li>
             <li><Link to='/'><img src={closeButton} alt='home' ></img></Link></li>
             </ul>
-        <div className='profiledata'>
-          <img  className ="profile-img"  src={user.picture} alt={user.name} />
+        <div className='profileData'>
+          <img className ="profile-img" src={user.picture} alt={user.name} />
           <div className= "profileInform">
           <h4 className='profileH4'> {user.name.split('@')[0].replace(/[^a-zA-Z ]/g, " ")}</h4>
           <h4 className='profileH4'>{user.email}</h4>
           </div>
         </div>
-        <LogoutButton text={'LOGOUT'} name={'logout'}/>
+        <div className='logoutBtn'>
+          <LogoutButton text={'LOGOUT'} name={'logout'}/>
+        </div>
       </div>
   )
 };
