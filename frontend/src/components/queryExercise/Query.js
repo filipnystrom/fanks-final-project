@@ -16,7 +16,7 @@ const getRandomInt = max => {
     return Math.floor(Math.random() * max);
 }
 
-const Query = ({ setClicked }) => {
+const Query = () => {
     const [clickedQuery, setClickedQuery] = useState(null);
     const [question, setQuestion] = useState('');
 
@@ -36,9 +36,9 @@ const Query = ({ setClicked }) => {
             }
         }
         if (clickedQuery === 'second') {
-            return <Countdown date={Date.now() + 3000} renderer={renderer2} />      
+            return <Countdown date={Date.now() + 1000 * 60} renderer={renderer2} />      
         }
-        return <div className='queryTimer'>{minutes}0:0{seconds}</div>;
+        return <div className='queryTimer'>{minutes}:{seconds}</div>;
     };
 
     const handleClick = e => {
@@ -62,7 +62,7 @@ const Query = ({ setClicked }) => {
                 </section>
                 {clickedQuery ? <div>
                     <h4 className='queryQuestion'>{question}</h4>
-                    <Countdown date={Date.now() + 3000} renderer={renderer} />
+                    <Countdown date={Date.now() + 1000 * 60} renderer={renderer} />
                 </div> :
                 <section className='stepSection'>
                     <p className='step'><span>Step 1:</span> Find a friend, and sit down in a calm and safe space. Take a few breaths together to settle in.</p>

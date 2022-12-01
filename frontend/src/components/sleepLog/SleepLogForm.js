@@ -110,7 +110,7 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
         <label htmlFor="rate">How would I rate my sleep?</label>
         <div className="radio">
           <label className="radioButton">
-            <img src={sleepTerrible} />
+            <img src={sleepTerrible} alt="Terrible sleep icon" />
             Terrible
             <input
               type="radio"
@@ -122,7 +122,7 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
           </label>
         
           <label className="radioButton">
-            <img src={sleepOk} />
+            <img src={sleepOk} alt="Okay sleep icon" />
             Not bad
             <input
               type="radio"
@@ -134,7 +134,7 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
           </label>
         
           <label className="radioButton">
-            <img src={sleepGreat} />
+            <img src={sleepGreat} alt="Great sleep icon" />
             Great!
             <input
             type="radio"
@@ -157,7 +157,7 @@ const SleepLogForm = ({ sleepLog, setSleepLog }) => {
 
         <button type="submit" className="loginBtn">SAVE</button>
       </form>
-      {(wrongInput === true) && <h3 className="errorMessage">Please fill in your log to submit!</h3>}
+      {(wrongInput === true) && <h3 className="errorMessage">Please fill in your log to save!</h3>}
     </section>
   )
 }

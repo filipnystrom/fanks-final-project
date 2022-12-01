@@ -48,7 +48,7 @@ const Home = () => {
 
               <div className='introText'>
                 <h1 className="introTitle">Grow with Sprout</h1>
-                <p className='description'>Sprout is your best friend in tending to your inner garden and striving towards personal growth! Join in on the journey to become free from stress and letting your flowers blossom. And don't worry, growing is both fun and easy, if you have the right company.</p>
+                <p className='description'>Sprout is your best friend in tending to your inner garden and striving towards personal growth! Join in on the journey to become free from stress and letting your flowers blossom. And don't worry, growing is both fun and easy – when you have the right company.</p>
                 <div className='loginBtnContainer'><LoginButton text={'SIGN UP'} name={'signup'} /></div>
               </div>
             </section>
