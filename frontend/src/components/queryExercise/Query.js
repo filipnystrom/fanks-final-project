@@ -24,7 +24,7 @@ const Query = () => {
         if (completed) {
             return <div><h2 className='queryGreat'>Great!</h2><button className='startBtnQuery'onClick={handleClick}>DONE</button></div>
         }
-        return <div className='queryTimer'>{minutes}0:0{seconds}</div>;
+        return <div className='queryTimer'>0{minutes}:{seconds}</div>;
     }
 
     const renderer = ({ minutes, seconds, completed }) => {
@@ -38,7 +38,7 @@ const Query = () => {
         if (clickedQuery === 'second') {
             return <Countdown date={Date.now() + 1000 * 60} renderer={renderer2} />      
         }
-        return <div className='queryTimer'>{minutes}:{seconds}</div>;
+        return <div className='queryTimer'>0{minutes}:{seconds}</div>;
     };
 
     const handleClick = e => {
